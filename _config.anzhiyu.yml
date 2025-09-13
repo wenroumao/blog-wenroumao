@@ -141,7 +141,7 @@ favicon: /favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://bu.dusays.com/2023/04/27/64496e511b09c.jpg
+  img: https://wenroumao.oss-cn-beijing.aliyuncs.com/img/%E5%A4%B4%E5%83%8F
   effect: false
 
 # Disable all banner image

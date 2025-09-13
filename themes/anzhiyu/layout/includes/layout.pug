@@ -165,3 +165,9 @@ script.
        // 只通过其他方式检测开发者工具
      });
   })();
+
+   if theme.background
+   if page.background
+     #web_bg(style=`background:`+ page.background + `;background-attachment: local;background-position: center;background-size: cover;background-repeat: no-repeat;`)
+   else
+     #web_bg

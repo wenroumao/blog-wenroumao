@@ -100,10 +100,7 @@ theme: anzhiyu
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: git@github.com:wenroumao/blog-wenroumao.git
-  branch: main
+
 
 
 #envelope_comment
