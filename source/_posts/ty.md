@@ -8,7 +8,7 @@ tags:
 categories:
   - 鞍山职业技术学院
 abbrlink: 2284d265
-sticky: 2
+sticky: 1 
 swiper_index: 2
 date: 2023-12-15 15:00:00
 updated: 2023-12-15 15:00:00

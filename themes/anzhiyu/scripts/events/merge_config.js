@@ -16,7 +16,7 @@ hexo.extend.filter.register(
       social: null,
       favicon: "/favicon.ico",
       avatar: {
-        img: "https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg",
+        img: "https://wenroumao.oss-cn-beijing.aliyuncs.com/img/%E5%A4%B4%E5%83%8F",
         effect: false,
       },
       disable_top_img: false,
