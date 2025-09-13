@@ -89,3 +89,79 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
 
     //- 弹窗通知
     !=partial('includes/popup/index', {}, {cache: true})
+
+
+script.
+  // 优化的防开发者工具检测
+  (function() {
+    let devtoolsOpen = false;
+    let threshold = 160;
+    
+    // 方法1: 检测窗口尺寸变化
+    function detectBySize() {
+      if (window.outerHeight - window.innerHeight > threshold || 
+          window.outerWidth - window.innerWidth > threshold) {
+        if (!devtoolsOpen) {
+          devtoolsOpen = true;
+          showWarning();
+        }
+      }
+    }
+    
+    // 方法2: 检测调试器
+    function detectByDebugger() {
+      let start = new Date();
+      debugger;
+      let end = new Date();
+      if (end - start > 100) {
+        if (!devtoolsOpen) {
+          devtoolsOpen = true;
+          showWarning();
+        }
+      }
+    }
+    
+    // 方法3: 检测console访问
+    function detectByConsole() {
+      let devtools = new Date();
+      devtools.toString = function() {
+        if (!devtoolsOpen) {
+          devtoolsOpen = true;
+          showWarning();
+        }
+      };
+      console.log('%c', devtools);
+    }
+    
+    // 显示警告并重新加载
+    function showWarning() {
+      alert('检测到开发者工具已打开，请关闭后继续访问！');
+      window.location.reload();
+    }
+    
+    // 立即检测
+    detectByConsole();
+    
+    // 持续监控
+    setInterval(detectBySize, 500);
+    setInterval(detectByDebugger, 1000);
+    setInterval(detectByConsole, 2000);
+    
+    // 监听键盘事件
+    document.addEventListener('keydown', function(e) {
+      // F12 或 Ctrl+Shift+I 或 Ctrl+Shift+J 或 Ctrl+U
+      if (e.keyCode === 123 || 
+          (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+          (e.ctrlKey && e.keyCode === 85)) {
+        e.preventDefault();
+        showWarning();
+        return false;
+      }
+    });
+    
+    // 右键菜单 - 保留用户正常使用权限
+     document.addEventListener('contextmenu', function(e) {
+       // 不禁用右键菜单，用户可以正常使用右键功能
+       // 只通过其他方式检测开发者工具
+     });
+  })();
