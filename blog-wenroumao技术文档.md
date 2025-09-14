@@ -480,6 +480,10 @@ npm run build
 # 部署到远程
 npm run deploy
 ```
+### 部署到github 
+git add .
+git commit -m "这里可填写更新内容"
+git push origin main
 
 ### 5. 文章 Front Matter 示例
 
@@ -689,6 +693,8 @@ hexo cinema -u
 hexo game -u
 - 配置个人信息和友链数据
 - 优化 SEO 和性能设置
+
+
 
 ## 技术支持
 
