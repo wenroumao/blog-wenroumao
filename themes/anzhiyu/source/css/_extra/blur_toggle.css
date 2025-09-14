@@ -1,0 +1,290 @@
+/**
+ * 毛玻璃效果切换功能样式
+ * 包含开关按钮样式、毛玻璃效果控制、苹果风格弧度
+ */
+
+/* ==================== 开关按钮样式 ==================== */
+#blur-toggle-button {
+  position: relative; /* 相对定位，用于内部元素定位 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 所有属性的过渡效果 */
+}
+
+#blur-toggle-button .site-page {
+  display: flex; /* 弹性布局 */
+  align-items: center; /* 垂直居中 */
+  gap: 6px; /* 元素间距 */
+  padding: 10px 14px; /* 内边距 */
+  border-radius: 22px; /* 圆角 */
+  background: rgba(255, 255, 255, 0.12); /* 背景色 */
+  backdrop-filter: blur(15px); /* 背景模糊效果 */
+  border: 1.5px solid rgba(255, 255, 255, 0.25); /* 边框 */
+  color: var(--anzhiyu-fontcolor); /* 字体颜色 */
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* 所有属性的过渡效果 */
+  font-size: 12px; /* 字体大小 */
+  font-weight: 600; /* 字体粗细 */
+  position: relative; /* 相对定位 */
+  overflow: hidden; /* 隐藏溢出内容 */
+}
+
+/* 按钮内部光效 */
+#blur-toggle-button .site-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+#blur-toggle-button:hover .site-page::before {
+  left: 100%;
+}
+
+#blur-toggle-button:hover .site-page {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+#blur-toggle-button.blur-active .site-page {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.25), rgba(99, 179, 237, 0.2));
+  border-color: rgba(74, 144, 226, 0.5);
+  color: #4a90e2;
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+}
+
+#blur-toggle-button.blur-active:hover .site-page {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.35), rgba(99, 179, 237, 0.3));
+  border-color: rgba(74, 144, 226, 0.6);
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4), 0 0 25px rgba(74, 144, 226, 0.2);
+}
+
+#blur-toggle-icon {
+  font-size: 16px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+#blur-toggle-button.blur-active #blur-toggle-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(74, 144, 226, 0.3));
+}
+
+#blur-toggle-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] #blur-toggle-button .site-page {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--anzhiyu-white);
+}
+
+[data-theme="dark"] #blur-toggle-button:hover .site-page {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] #blur-toggle-button.blur-active .site-page {
+  background: rgba(74, 144, 226, 0.3);
+  border-color: rgba(74, 144, 226, 0.5);
+  color: #6bb6ff;
+}
+
+/* ==================== 毛玻璃效果控制 ==================== */
+/* 容器溢出控制 - 防止图片放大后超出边界 */
+.live-photo-container,
+.live-photo-wrapper,
+#album_detail .album-content-img {
+  overflow: hidden !important;
+  position: relative;
+}
+
+/* 确保图片完全填充容器，避免边界不一致 */
+.live-photo-still,
+.live-photo-video,
+#album_detail .album-content-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* 启用毛玻璃效果时的样式 */
+.blur-effect-enabled .live-photo-still,
+.blur-effect-enabled .live-photo-video,
+.blur-effect-enabled #album_detail .album-content-img img {
+  filter: blur(8px) saturate(1.2) brightness(1.1);
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-enabled .live-photo-container:hover .live-photo-still,
+.blur-effect-enabled .live-photo-container:hover .live-photo-video,
+.blur-effect-enabled #album_detail .album-content-img:hover img {
+  filter: blur(0px) saturate(1) brightness(1);
+  transform: scale(1.008); /* 减小缩放比例，避免溢出 */
+}
+
+/* 禁用毛玻璃效果时的样式 */
+.blur-effect-disabled .live-photo-still,
+.blur-effect-disabled .live-photo-video,
+.blur-effect-disabled #album_detail .album-content-img img {
+  filter: none !important;
+  backdrop-filter: none !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-disabled .live-photo-container:hover .live-photo-still,
+.blur-effect-disabled .live-photo-container:hover .live-photo-video,
+.blur-effect-disabled #album_detail .album-content-img:hover img {
+  filter: none !important;
+  transform: scale(1.008); /* 保持一致的缩放比例 */
+}
+
+/* ==================== 苹果风格弧度调整 ==================== */
+/* 苹果设备的标准弧度：连续曲率，约18-20px */
+.live-photo-container,
+.live-photo-wrapper,
+.live-photo-still,
+.live-photo-video,
+#album_detail .album-content-img,
+#album_detail .album-content-img img {
+  border-radius: 18px !important;
+}
+
+/* 小尺寸元素使用较小的弧度 */
+.live-photo-indicator {
+  border-radius: 6px !important;
+}
+
+.live-photo-progress {
+  border-radius: 4px !important;
+}
+
+/* 响应式弧度调整 */
+@media screen and (max-width: 768px) {
+  .live-photo-container,
+  .live-photo-wrapper,
+  .live-photo-still,
+  .live-photo-video,
+  #album_detail .album-content-img,
+  #album_detail .album-content-img img {
+    border-radius: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .live-photo-container,
+  .live-photo-wrapper,
+  .live-photo-still,
+  .live-photo-video,
+  #album_detail .album-content-img,
+  #album_detail .album-content-img img {
+    border-radius: 14px !important;
+  }
+}
+
+/* ==================== 通知样式 ==================== */
+.blur-toggle-notification {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-toggle-notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 暗色主题通知样式 */
+[data-theme="dark"] .blur-toggle-notification {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== 移动端适配 ==================== */
+@media screen and (max-width: 768px) {
+  #blur-toggle-button .site-page {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  #blur-toggle-icon {
+    font-size: 12px;
+  }
+  
+  #blur-toggle-text {
+    font-size: 10px;
+  }
+  
+  .blur-toggle-notification {
+    top: 60px;
+    right: 10px;
+    padding: 10px 16px;
+    font-size: 12px;
+    border-radius: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #blur-toggle-button .site-page {
+    padding: 5px 8px;
+  }
+  
+  #blur-toggle-text {
+    display: none; /* 在小屏幕上隐藏文字，只显示图标 */
+  }
+}
+
+/* ==================== 动画效果 ==================== */
+@keyframes blur-toggle-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+  }
+}
+
+#blur-toggle-button.blur-active .site-page {
+  animation: blur-toggle-pulse 2s infinite;
+}
+
+/* 切换时的过渡效果 */
+.live-photo-still,
+.live-photo-video,
+#album_detail .album-content-img img {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 确保过渡效果在所有状态下都生效 */
+* {
+  transition-property: filter, backdrop-filter, transform, opacity, background, border-color, box-shadow;
+}

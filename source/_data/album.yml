@@ -46,20 +46,20 @@
   path_name: /livePhotos # 相册路径
   type: 1 # 相册类型，1为普通相册，2为瀑布流相册
   description: 苹果设备拍摄的实况照片，记录生活中的动态瞬间。 # 相册描述
-  cover: https://bu.dusays.com/2023/04/09/64329399cea5a.webp # 相册封面
-  top_background: https://bu.dusays.com/2023/04/09/64329399cea5a.webp # 顶部背景图
+  cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0530.JPEG # 相册封面
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0530.JPEG # 顶部背景图
   top_link: /album # 返回链接
   top_btn_text: 返回 # 返回按钮文本
   album_list: # 相册列表
-    - date: 2024-01-15 # 图片日期
-      content: 春天的樱花盛开瞬间 # 图片内容描述
-      address: 北京朝阳公园 # 图片地点
-      from: iPhone 15 Pro # 图片来源
+    - date: 2025-09-07 # 图片日期
+      content: 在鞍山二一九公园拍摄 # 图片内容描述
+      address: 鞍山二一九公园 # 图片地点
+      from: iPhone 15 Pro Max # 图片来源
       live_photo: # 实况照片配置
         enable: true # 启用实况照片
         still_image: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.JPEG # 静态图片（后备封面）
         video: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.MOV # 实况视频
-        duration: 3 # 视频时长（秒）
+        duration: 2 # 视频时长（秒）
         # poster: 可选，不设置时自动使用视频第一帧作为封面
         # 播放控制配置
         play_mode: "press" # 播放模式: "hover"(悬停播放) | "press"(长按播放)

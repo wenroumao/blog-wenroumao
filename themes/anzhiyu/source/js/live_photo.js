@@ -92,7 +92,9 @@ class LivePhoto {
       isPlaying: false,
       playTimeout: null,
       progressInterval: null,
-      pressTimer: null
+      pressTimer: null,
+      blurInterval: null,
+      scaleInterval: null
     };
 
     this.containers.push(livePhotoData);
@@ -102,6 +104,9 @@ class LivePhoto {
 
     // 绑定事件
     this.bindEvents(livePhotoData);
+    
+    // 添加悬停增强效果
+    this.addHoverEnhancement(livePhotoData);
 
     // 预加载视频
     this.preloadVideo(livePhotoData);
@@ -219,13 +224,19 @@ class LivePhoto {
   startPlay(data) {
     if (data.isPlaying) return;
 
-    const { container, video, duration } = data;
+    const { container, video, stillImage, duration } = data;
     
     // 停止其他正在播放的实况照片
     this.stopAllOthers(data);
 
     data.isPlaying = true;
     container.classList.add('playing');
+    
+    // 添加增强视觉效果类
+    container.classList.add('live-photo-enhanced');
+    
+    // 启动渐进式模糊效果
+    this.startEnhancedEffects(data);
 
     // 播放视频
     const playPromise = video.play();
@@ -235,6 +246,9 @@ class LivePhoto {
         .then(() => {
           // 播放成功
           this.startProgress(data);
+          
+          // 启动动态缩放效果
+          this.startDynamicScaling(data);
           
           // 设置自动停止
           data.playTimeout = setTimeout(() => {
@@ -256,6 +270,11 @@ class LivePhoto {
     
     data.isPlaying = false;
     container.classList.remove('playing');
+    container.classList.remove('live-photo-enhanced');
+    
+    // 停止增强效果
+    this.stopEnhancedEffects(data);
+    this.stopDynamicScaling(data);
     
     // 停止视频
     video.pause();
@@ -554,6 +573,125 @@ class LivePhoto {
       this.stopPlay(data);
     });
     this.containers = [];
+  }
+
+  /**
+   * 启动增强视觉效果
+   * @param {Object} data - 实况照片数据对象
+   */
+  startEnhancedEffects(data) {
+    const { container, stillImage, video } = data;
+    
+    // 渐进式模糊处理
+    let blurStep = 0;
+    const maxBlur = 8;
+    const blurSteps = 20;
+    const blurIncrement = maxBlur / blurSteps;
+    
+    data.blurInterval = setInterval(() => {
+      if (blurStep < blurSteps) {
+        const currentBlur = blurStep * blurIncrement;
+        const brightness = 1 - (blurStep * 0.005); // 轻微降低亮度
+        const saturate = 1 - (blurStep * 0.01); // 轻微降低饱和度
+        
+        stillImage.style.filter = `blur(${currentBlur}px) brightness(${brightness}) saturate(${saturate})`;
+        blurStep++;
+      } else {
+        clearInterval(data.blurInterval);
+        data.blurInterval = null;
+      }
+    }, 30); // 每30ms更新一次，创建平滑过渡
+    
+    // 视频清晰化效果
+    setTimeout(() => {
+      if (data.isPlaying) {
+        video.style.filter = 'blur(0px) brightness(1.05) saturate(1.1) contrast(1.02)';
+      }
+    }, 200);
+  }
+
+  /**
+   * 停止增强视觉效果
+   * @param {Object} data - 实况照片数据对象
+   */
+  stopEnhancedEffects(data) {
+    const { stillImage, video } = data;
+    
+    // 清除模糊间隔
+    if (data.blurInterval) {
+      clearInterval(data.blurInterval);
+      data.blurInterval = null;
+    }
+    
+    // 重置滤镜效果
+    stillImage.style.filter = 'blur(0px) brightness(1) saturate(1) contrast(1)';
+    video.style.filter = 'blur(0px) brightness(1) saturate(1) contrast(1)';
+  }
+
+  /**
+   * 启动动态缩放效果
+   * @param {Object} data - 实况照片数据对象
+   */
+  startDynamicScaling(data) {
+    const { container } = data;
+    let scaleStep = 0;
+    const maxScale = 0.04; // 最大缩放4%
+    const scaleSteps = 30;
+    const scaleIncrement = maxScale / scaleSteps;
+    
+    data.scaleInterval = setInterval(() => {
+      if (scaleStep < scaleSteps && data.isPlaying) {
+        const currentScale = 1 + (scaleStep * scaleIncrement);
+        const rotation = Math.sin(scaleStep * 0.2) * 0.5; // 轻微旋转
+        
+        container.style.transform = `scale(${currentScale}) rotate(${rotation}deg) translateZ(0)`;
+        scaleStep++;
+      } else if (data.isPlaying) {
+        // 达到最大缩放后开始回缩
+        scaleStep = 0;
+      }
+    }, 50); // 每50ms更新一次
+  }
+
+  /**
+   * 停止动态缩放效果
+   * @param {Object} data - 实况照片数据对象
+   */
+  stopDynamicScaling(data) {
+    const { container } = data;
+    
+    // 清除缩放间隔
+    if (data.scaleInterval) {
+      clearInterval(data.scaleInterval);
+      data.scaleInterval = null;
+    }
+    
+    // 重置变换
+    container.style.transform = 'scale(1) rotate(0deg) translateZ(0)';
+  }
+
+  /**
+   * 添加悬停增强效果
+   * @param {Object} data - 实况照片数据对象
+   */
+  addHoverEnhancement(data) {
+    const { container, stillImage } = data;
+    
+    container.addEventListener('mouseenter', () => {
+      if (!data.isPlaying) {
+        // 悬停时的轻微模糊和亮度提升
+        stillImage.style.filter = 'blur(1px) brightness(1.1) saturate(1.2) contrast(1.05)';
+        container.style.transform = 'scale(1.02) translateZ(0)';
+      }
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      if (!data.isPlaying) {
+        // 恢复原始状态
+        stillImage.style.filter = 'blur(0px) brightness(1) saturate(1) contrast(1)';
+        container.style.transform = 'scale(1) translateZ(0)';
+      }
+    });
   }
 }
 

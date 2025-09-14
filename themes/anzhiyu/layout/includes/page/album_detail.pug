@@ -27,7 +27,7 @@
                       .album-container-img
                         - let posterSrc = item.live_photo.poster || item.live_photo.still_image
                         - let playMode = item.live_photo.play_mode || 'hover'
-                        - let showProgress = item.live_photo.show_progress !== false
+                        - let showProgress = item.live_photo.show_progress === true
                         - let pressDelay = item.live_photo.press_delay || 300
                         .live-photo-container(data-duration=item.live_photo.duration data-play-mode=playMode data-show-progress=showProgress data-press-delay=pressDelay)
                           .live-photo-wrapper
@@ -37,7 +37,7 @@
                             .live-photo-controls
                               .live-photo-play-btn
                                 i.anzhiyufont.anzhiyu-icon-play
-                              .live-photo-indicator LIVE
+                              .live-photo-indicator LIVE实况
                               .live-photo-cover-status(style="display: none;")
                                 span.cover-status-text 正在提取封面...
                         .album-content-noimg
