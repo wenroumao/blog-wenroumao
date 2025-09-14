@@ -101,6 +101,315 @@
 }
 
 /* ==================== 毛玻璃效果控制 ==================== */
+
+/* 导航菜单毛玻璃效果 */
+.blur-effect-enabled #nav {
+  backdrop-filter: blur(20px) saturate(1.2) brightness(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2) brightness(1.1);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 导航菜单项毛玻璃效果 */
+.blur-effect-enabled #nav .menus_items .menus_item .site-page {
+  backdrop-filter: blur(15px) saturate(1.1);
+  -webkit-backdrop-filter: blur(15px) saturate(1.1);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-enabled #nav .menus_items .menus_item .site-page:hover {
+  backdrop-filter: blur(20px) saturate(1.3) brightness(1.05);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3) brightness(1.05);
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 子菜单毛玻璃效果 */
+.blur-effect-enabled #nav .menus_items .menus_item .menus_item_child {
+  backdrop-filter: blur(25px) saturate(1.2) brightness(1.1);
+  -webkit-backdrop-filter: blur(25px) saturate(1.2) brightness(1.1);
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.blur-effect-enabled #nav .menus_items .menus_item .menus_item_child li a {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px;
+  margin: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-enabled #nav .menus_items .menus_item .menus_item_child li a:hover {
+  backdrop-filter: blur(15px) saturate(1.2);
+  -webkit-backdrop-filter: blur(15px) saturate(1.2);
+  background: rgba(255, 255, 255, 0.12) !important;
+  transform: translateX(3px);
+}
+
+/* 右侧导航按钮毛玻璃效果 */
+.blur-effect-enabled #nav #nav-right .nav-button .site-page {
+  backdrop-filter: blur(15px) saturate(1.1) brightness(1.05);
+  -webkit-backdrop-filter: blur(15px) saturate(1.1) brightness(1.05);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-enabled #nav #nav-right .nav-button .site-page:hover {
+  backdrop-filter: blur(20px) saturate(1.3) brightness(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3) brightness(1.1);
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 暗色主题下的导航毛玻璃效果 */
+[data-theme="dark"].blur-effect-enabled #nav {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"].blur-effect-enabled #nav .menus_items .menus_item .site-page {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"].blur-effect-enabled #nav .menus_items .menus_item .site-page:hover {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"].blur-effect-enabled #nav .menus_items .menus_item .menus_item_child {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"].blur-effect-enabled #nav .menus_items .menus_item .menus_item_child li a {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"].blur-effect-enabled #nav .menus_items .menus_item .menus_item_child li a:hover {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"].blur-effect-enabled #nav #nav-right .nav-button .site-page {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"].blur-effect-enabled #nav #nav-right .nav-button .site-page:hover {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* 侧边栏毛玻璃效果 */
+.blur-effect-enabled #sidebar {
+  backdrop-filter: blur(25px) saturate(1.2) brightness(1.1);
+  -webkit-backdrop-filter: blur(25px) saturate(1.2) brightness(1.1);
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.blur-effect-enabled #sidebar .sidebar-site-data {
+  backdrop-filter: blur(15px) saturate(1.1);
+  -webkit-backdrop-filter: blur(15px) saturate(1.1);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  margin: 8px;
+}
+
+.blur-effect-enabled #sidebar .sidebar-menu-item {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px;
+  margin: 4px 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-enabled #sidebar .sidebar-menu-item:hover {
+  backdrop-filter: blur(15px) saturate(1.2);
+  -webkit-backdrop-filter: blur(15px) saturate(1.2);
+  background: rgba(255, 255, 255, 0.12) !important;
+  transform: translateX(5px);
+}
+
+/* 右键菜单毛玻璃效果 */
+.blur-effect-enabled #rightMenu {
+  backdrop-filter: blur(30px) saturate(1.3) brightness(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(1.3) brightness(1.1);
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.blur-effect-enabled #rightMenu .rightMenu-item {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 6px;
+  margin: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blur-effect-enabled #rightMenu .rightMenu-item:hover {
+  backdrop-filter: blur(15px) saturate(1.2);
+  -webkit-backdrop-filter: blur(15px) saturate(1.2);
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: translateX(3px);
+}
+
+/* 搜索框毛玻璃效果 */
+.blur-effect-enabled #local-search .search-dialog {
+  backdrop-filter: blur(25px) saturate(1.2) brightness(1.1);
+  -webkit-backdrop-filter: blur(25px) saturate(1.2) brightness(1.1);
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.blur-effect-enabled #local-search .search-dialog input {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 暗色主题下的其他元素毛玻璃效果 */
+[data-theme="dark"].blur-effect-enabled #sidebar {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"].blur-effect-enabled #sidebar .sidebar-site-data {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"].blur-effect-enabled #sidebar .sidebar-menu-item {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"].blur-effect-enabled #sidebar .sidebar-menu-item:hover {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"].blur-effect-enabled #rightMenu {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"].blur-effect-enabled #rightMenu .rightMenu-item {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"].blur-effect-enabled #rightMenu .rightMenu-item:hover {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="dark"].blur-effect-enabled #local-search .search-dialog {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"].blur-effect-enabled #local-search .search-dialog input {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 浅色模式文字颜色保持黑色 - 只在浅色主题下生效 */
+:not([data-theme="dark"]).blur-effect-enabled #nav *,
+:not([data-theme="dark"]).blur-effect-enabled #nav a,
+:not([data-theme="dark"]).blur-effect-enabled #nav span,
+:not([data-theme="dark"]).blur-effect-enabled #nav i {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #nav *:hover,
+:not([data-theme="dark"]).blur-effect-enabled #nav a:hover,
+:not([data-theme="dark"]).blur-effect-enabled #nav span:hover,
+:not([data-theme="dark"]).blur-effect-enabled #nav i:hover {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #nav *::selection {
+  color: rgba(0, 0, 0, 0.9) !important;
+  background: rgba(74, 144, 226, 0.3) !important;
+}
+
+/* 侧边栏文字颜色保持黑色 - 只在浅色主题下生效 */
+:not([data-theme="dark"]).blur-effect-enabled #sidebar *,
+:not([data-theme="dark"]).blur-effect-enabled #sidebar a,
+:not([data-theme="dark"]).blur-effect-enabled #sidebar span,
+:not([data-theme="dark"]).blur-effect-enabled #sidebar i {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #sidebar *:hover,
+:not([data-theme="dark"]).blur-effect-enabled #sidebar a:hover,
+:not([data-theme="dark"]).blur-effect-enabled #sidebar span:hover,
+:not([data-theme="dark"]).blur-effect-enabled #sidebar i:hover {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #sidebar *::selection {
+  color: rgba(0, 0, 0, 0.9) !important;
+  background: rgba(74, 144, 226, 0.3) !important;
+}
+
+/* 右键菜单文字颜色保持黑色 - 只在浅色主题下生效 */
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu *,
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu a,
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu span,
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu i {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu *:hover,
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu a:hover,
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu span:hover,
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu i:hover {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #rightMenu *::selection {
+  color: rgba(0, 0, 0, 0.9) !important;
+  background: rgba(74, 144, 226, 0.3) !important;
+}
+
+/* 搜索框文字颜色保持黑色 - 只在浅色主题下生效 */
+:not([data-theme="dark"]).blur-effect-enabled #local-search *,
+:not([data-theme="dark"]).blur-effect-enabled #local-search a,
+:not([data-theme="dark"]).blur-effect-enabled #local-search span,
+:not([data-theme="dark"]).blur-effect-enabled #local-search i,
+:not([data-theme="dark"]).blur-effect-enabled #local-search input {
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #local-search *:hover,
+:not([data-theme="dark"]).blur-effect-enabled #local-search a:hover,
+:not([data-theme="dark"]).blur-effect-enabled #local-search span:hover,
+:not([data-theme="dark"]).blur-effect-enabled #local-search i:hover,
+:not([data-theme="dark"]).blur-effect-enabled #local-search input:hover {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+:not([data-theme="dark"]).blur-effect-enabled #local-search *::selection {
+  color: rgba(0, 0, 0, 0.9) !important;
+  background: rgba(74, 144, 226, 0.3) !important;
+}
+/* ====================  ==================== */
 /* 容器溢出控制 - 防止图片放大后超出边界 */
 .live-photo-container,
 .live-photo-wrapper,
