@@ -1341,7 +1341,458 @@ const anzhiyu = {
     }
     authorInfoSayHiElement.textContent = randomGreeting;
   },
+
+  
+  // 音乐界面字体设置功能
+  musicFontSettings: {
+    // 默认字体配置 - 楷体
+    defaultFonts: {
+      title: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+      artist: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+      album: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+      time: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+      list: '"Kaiti SC", "KaiTi", "楷体", cursive, serif'
+    },
+    //     // 默认字体配置 - 楷体
+    // defaultFonts: {
+    //   title: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+    //   artist: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+    //   album: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+    //   time: '"Kaiti SC", "KaiTi", "楷体", cursive, serif',
+    //   list: '"Kaiti SC", "KaiTi", "楷体", cursive, serif'
+    // },
+
+    // 预设字体选项 - 以苹果字体为主
+    fontOptions: {
+      'apple-system': '-apple-system, BlinkMacSystemFont, sans-serif',
+      'sf-pro-display': '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+      'sf-pro-text': '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif',
+      'sf-mono': '-apple-system, BlinkMacSystemFont, "SF Mono", "Monaco", Consolas, monospace',
+      'helvetica-neue': '"Helvetica Neue", Helvetica, Arial, sans-serif',
+      'avenir': 'Avenir, "Avenir Next", Helvetica, Arial, sans-serif',
+      'system': 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      'arial': 'Arial, sans-serif',
+      'helvetica': 'Helvetica, Arial, sans-serif',
+      'georgia': 'Georgia, serif',
+      'times': '"Times New Roman", Times, serif',
+      'courier': '"Courier New", Courier, monospace',
+      'verdana': 'Verdana, Geneva, sans-serif',
+      'tahoma': 'Tahoma, Geneva, sans-serif',
+      'trebuchet': '"Trebuchet MS", Helvetica, sans-serif',
+      'palatino': '"Palatino Linotype", "Book Antiqua", Palatino, serif',
+      'garamond': 'Garamond, serif',
+      'optima': 'Optima, Candara, "Noto Sans", source-sans-pro, sans-serif',
+      'chinese-songti': '"Songti SC", "SimSun", serif',
+      'chinese-heiti': '"Heiti SC", "SimHei", sans-serif',
+      'chinese-kaiti': '"Kaiti SC", "KaiTi", cursive',
+      'chinese-fangsong': '"STFangsong", "FangSong", serif',
+      'microsoft-yahei': '"Microsoft YaHei", "微软雅黑", sans-serif',
+      'pingfang': '"PingFang SC", "PingFang TC", "Helvetica Neue", Arial, sans-serif'
+    },
+
+    // 获取当前字体设置
+    getCurrentFonts: function() {
+      const savedFonts = localStorage.getItem('anzhiyu-music-fonts');
+      if (savedFonts) {
+        try {
+          return JSON.parse(savedFonts);
+        } catch (e) {
+          console.warn('解析音乐字体设置失败，使用默认设置');
+        }
+      }
+      return this.defaultFonts;
+    },
+
+    // 保存字体设置
+    saveFonts: function(fonts) {
+      try {
+        localStorage.setItem('anzhiyu-music-fonts', JSON.stringify(fonts));
+        this.applyFonts(fonts);
+        anzhiyu.snackbarShow('音乐界面字体设置已保存');
+      } catch (e) {
+        console.error('保存音乐字体设置失败:', e);
+        anzhiyu.snackbarShow('保存字体设置失败');
+      }
+    },
+
+    // 应用字体设置到音乐界面
+    applyFonts: function(fonts = null) {
+      const currentFonts = fonts || this.getCurrentFonts();
+      
+      // 创建或更新样式
+      let styleElement = document.getElementById('anzhiyu-music-font-style');
+      if (!styleElement) {
+        styleElement = document.createElement('style');
+        styleElement.id = 'anzhiyu-music-font-style';
+        document.head.appendChild(styleElement);
+      }
+
+      const css = `
+        /* 音乐界面字体自定义样式 */
+        #anMusic-page .aplayer-title,
+        #nav-music .aplayer-title {
+          font-family: ${currentFonts.title} !important;
+        }
+        
+        #anMusic-page .aplayer-author,
+        #nav-music .aplayer-author {
+          font-family: ${currentFonts.artist} !important;
+        }
+        
+        #anMusic-page .aplayer-list-title,
+        #nav-music .aplayer-list-title {
+          font-family: ${currentFonts.album} !important;
+        }
+        
+        #anMusic-page .aplayer-time,
+        #nav-music .aplayer-time,
+        #anMusic-page .aplayer-dtime,
+        #nav-music .aplayer-dtime {
+          font-family: ${currentFonts.time} !important;
+        }
+        
+        #anMusic-page .aplayer-list,
+        #nav-music .aplayer-list,
+        #anMusic-page .aplayer-list-author,
+        #nav-music .aplayer-list-author {
+          font-family: ${currentFonts.list} !important;
+        }
+        
+        /* 歌词界面字体设置 */
+        #anMusic-page .aplayer-lrc,
+        #nav-music .aplayer-lrc,
+        #anMusic-page .aplayer-lrc p,
+        #nav-music .aplayer-lrc p,
+        #anMusic-page .aplayer-lrc-current,
+        #nav-music .aplayer-lrc-current,
+        .aplayer-lrc,
+        .aplayer-lrc p,
+        .aplayer-lrc-current {
+          font-family: ${currentFonts.title} !important;
+        }
+      `;
+      
+      styleElement.textContent = css;
+    },
+
+    // 重置为默认字体
+    resetToDefault: function() {
+      localStorage.removeItem('anzhiyu-music-fonts');
+      this.applyFonts(this.defaultFonts);
+      anzhiyu.snackbarShow('音乐界面字体已重置为默认设置');
+    },
+
+    // 设置特定元素的字体
+    setElementFont: function(element, fontFamily) {
+      const validElements = ['title', 'artist', 'album', 'time', 'list'];
+      if (!validElements.includes(element)) {
+        console.warn('无效的音乐界面元素:', element);
+        return false;
+      }
+
+      const currentFonts = this.getCurrentFonts();
+      currentFonts[element] = fontFamily;
+      this.saveFonts(currentFonts);
+      return true;
+    },
+
+    // 批量设置字体
+    setBatchFonts: function(fontSettings) {
+      const currentFonts = this.getCurrentFonts();
+      Object.assign(currentFonts, fontSettings);
+      this.saveFonts(currentFonts);
+    },
+
+    // 获取预设字体
+    getPresetFont: function(presetName) {
+      return this.fontOptions[presetName] || null;
+    },
+
+    // 应用预设字体到所有元素
+    applyPresetToAll: function(presetName) {
+      const fontFamily = this.getPresetFont(presetName);
+      if (!fontFamily) {
+        console.warn('未找到预设字体:', presetName);
+        return false;
+      }
+
+      const newFonts = {
+        title: fontFamily,
+        artist: fontFamily,
+        album: fontFamily,
+        time: fontFamily,
+        list: fontFamily
+      };
+      
+      this.saveFonts(newFonts);
+      return true;
+    },
+
+    // 创建字体设置面板
+    createFontPanel: function() {
+      const panelHTML = `
+        <div id="music-font-panel" class="music-font-panel" style="display: none;">
+          <div class="font-panel-header">
+            <h3>音乐界面字体设置</h3>
+            <button class="font-panel-close" onclick="anzhiyu.musicFontSettings.closeFontPanel()">&times;</button>
+          </div>
+          <div class="font-panel-content">
+            <div class="font-setting-group">
+              <label>歌曲标题字体:</label>
+              <select id="title-font-select">
+                ${this.generateFontOptions()}
+              </select>
+            </div>
+            <div class="font-setting-group">
+              <label>艺术家字体:</label>
+              <select id="artist-font-select">
+                ${this.generateFontOptions()}
+              </select>
+            </div>
+            <div class="font-setting-group">
+              <label>专辑字体:</label>
+              <select id="album-font-select">
+                ${this.generateFontOptions()}
+              </select>
+            </div>
+            <div class="font-setting-group">
+              <label>时间字体:</label>
+              <select id="time-font-select">
+                ${this.generateFontOptions()}
+              </select>
+            </div>
+            <div class="font-setting-group">
+              <label>列表字体:</label>
+              <select id="list-font-select">
+                ${this.generateFontOptions()}
+              </select>
+            </div>
+            <div class="font-panel-actions">
+              <button onclick="anzhiyu.musicFontSettings.applyPanelSettings()">应用设置</button>
+              <button onclick="anzhiyu.musicFontSettings.resetToDefault()">重置默认</button>
+              <button onclick="anzhiyu.musicFontSettings.closeFontPanel()">取消</button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // 添加样式
+      const panelStyle = `
+        <style id="music-font-panel-style">
+          .music-font-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--anzhiyu-card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            z-index: 9999;
+            min-width: 400px;
+            max-width: 500px;
+          }
+          .font-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--anzhiyu-separator-color);
+          }
+          .font-panel-header h3 {
+            margin: 0;
+            color: var(--anzhiyu-fontcolor);
+          }
+          .font-panel-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--anzhiyu-fontcolor);
+          }
+          .font-panel-content {
+            padding: 20px;
+          }
+          .font-setting-group {
+            margin-bottom: 15px;
+          }
+          .font-setting-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--anzhiyu-fontcolor);
+            font-weight: 500;
+          }
+          .font-setting-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--anzhiyu-separator-color);
+            border-radius: 6px;
+            background: var(--anzhiyu-background);
+            color: var(--anzhiyu-fontcolor);
+          }
+          .font-panel-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+          }
+          .font-panel-actions button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: var(--anzhiyu-main);
+            color: white;
+          }
+          .font-panel-actions button:hover {
+            opacity: 0.8;
+          }
+        </style>
+      `;
+      
+      if (!document.getElementById('music-font-panel-style')) {
+        document.head.insertAdjacentHTML('beforeend', panelStyle);
+      }
+      
+      if (!document.getElementById('music-font-panel')) {
+        document.body.insertAdjacentHTML('beforeend', panelHTML);
+        this.loadPanelSettings();
+      }
+    },
+
+    // 生成字体选项HTML
+    generateFontOptions: function() {
+      let options = '<option value="">选择字体...</option>';
+      for (const [key, value] of Object.entries(this.fontOptions)) {
+        const displayName = this.getFontDisplayName(key);
+        options += `<option value="${value}">${displayName}</option>`;
+      }
+      return options;
+    },
+
+    // 获取字体显示名称
+    getFontDisplayName: function(key) {
+      const displayNames = {
+        'apple-system': '苹果系统字体',
+        'sf-pro-display': 'SF Pro Display',
+        'sf-pro-text': 'SF Pro Text',
+        'sf-mono': 'SF Mono',
+        'helvetica-neue': 'Helvetica Neue',
+        'avenir': 'Avenir',
+        'system': '系统默认',
+        'arial': 'Arial',
+        'helvetica': 'Helvetica',
+        'georgia': 'Georgia',
+        'times': 'Times New Roman',
+        'courier': 'Courier New',
+        'verdana': 'Verdana',
+        'tahoma': 'Tahoma',
+        'trebuchet': 'Trebuchet MS',
+        'palatino': 'Palatino',
+        'garamond': 'Garamond',
+        'optima': 'Optima',
+        'chinese-songti': '宋体',
+        'chinese-heiti': '黑体',
+        'chinese-kaiti': '楷体',
+        'chinese-fangsong': '仿宋',
+        'microsoft-yahei': '微软雅黑',
+        'pingfang': '苹方'
+      };
+      return displayNames[key] || key;
+    },
+
+    // 显示字体设置面板
+    showFontPanel: function() {
+      this.createFontPanel();
+      document.getElementById('music-font-panel').style.display = 'block';
+    },
+
+    // 关闭字体设置面板
+    closeFontPanel: function() {
+      const panel = document.getElementById('music-font-panel');
+      if (panel) {
+        panel.style.display = 'none';
+      }
+    },
+
+    // 加载面板设置
+    loadPanelSettings: function() {
+      const currentFonts = this.getCurrentFonts();
+      const elements = ['title', 'artist', 'album', 'time', 'list'];
+      
+      elements.forEach(element => {
+        const select = document.getElementById(`${element}-font-select`);
+        if (select && currentFonts[element]) {
+          select.value = currentFonts[element];
+        }
+      });
+    },
+
+    // 应用面板设置
+    applyPanelSettings: function() {
+      const elements = ['title', 'artist', 'album', 'time', 'list'];
+      const newFonts = {};
+      
+      elements.forEach(element => {
+        const select = document.getElementById(`${element}-font-select`);
+        if (select && select.value) {
+          newFonts[element] = select.value;
+        }
+      });
+      
+      if (Object.keys(newFonts).length > 0) {
+        this.setBatchFonts(newFonts);
+        this.closeFontPanel();
+      } else {
+        anzhiyu.snackbarShow('请至少选择一个字体设置');
+      }
+    },
+
+    // 初始化字体设置
+    init: function() {
+      // 页面加载时应用保存的字体设置
+      this.applyFonts();
+      
+      // 监听音乐播放器加载完成
+      const checkMusicPlayer = () => {
+        const musicPlayer = document.querySelector('#anMusic-page meting-js');
+        if (musicPlayer) {
+          // 重新应用字体设置，确保音乐播放器加载后字体生效
+          setTimeout(() => {
+            this.applyFonts();
+          }, 1000);
+        } else {
+          setTimeout(checkMusicPlayer, 500);
+        }
+      };
+      
+      if (window.location.pathname.includes('/music/')) {
+        checkMusicPlayer();
+      }
+    }
+  },
 };
+
+// 初始化音乐字体设置
+if (typeof window !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', function() {
+    // 初始化音乐字体设置
+    if (anzhiyu && anzhiyu.musicFontSettings) {
+      anzhiyu.musicFontSettings.init();
+    }
+  });
+  
+  // 如果页面已经加载完成，立即初始化
+  if (document.readyState === 'loading') {
+    // 文档还在加载中
+  } else {
+    // 文档已经加载完成
+    setTimeout(() => {
+      if (anzhiyu && anzhiyu.musicFontSettings) {
+        anzhiyu.musicFontSettings.init();
+      }
+    }, 100);
+  }
+}
 
 const anzhiyuPopupManager = {
   queue: [],
