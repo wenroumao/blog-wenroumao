@@ -8,7 +8,7 @@ script.
 
       Array.from($mermaid).forEach((item, index) => {
         const mermaidSrc = item.firstElementChild
-        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidThemeConfig = '%%{init:{ "theme":"' + theme + '"}}%%\n'
         const mermaidID = 'mermaid-' + index
         const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
 

@@ -40,4 +40,47 @@
       content: 老妹的画 # 图片内容描述
       image: # 图片列表
         - https://bu.dusays.com/2023/04/09/643293997b92b.jpeg
+
+
+- class_name: 实况照片 # 相册分类名称
+  path_name: /livePhotos # 相册路径
+  type: 1 # 相册类型，1为普通相册，2为瀑布流相册
+  description: 苹果设备拍摄的实况照片，记录生活中的动态瞬间。 # 相册描述
+  cover: https://bu.dusays.com/2023/04/09/64329399cea5a.webp # 相册封面
+  top_background: https://bu.dusays.com/2023/04/09/64329399cea5a.webp # 顶部背景图
+  top_link: /album # 返回链接
+  top_btn_text: 返回 # 返回按钮文本
+  album_list: # 相册列表
+    - date: 2024-01-15 # 图片日期
+      content: 春天的樱花盛开瞬间 # 图片内容描述
+      address: 北京朝阳公园 # 图片地点
+      from: iPhone 15 Pro # 图片来源
+      live_photo: # 实况照片配置
+        enable: true # 启用实况照片
+        still_image: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.JPEG # 静态图片（后备封面）
+        video: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.MOV # 实况视频
+        duration: 3 # 视频时长（秒）
+        # poster: 可选，不设置时自动使用视频第一帧作为封面
+        # 播放控制配置
+        play_mode: "press" # 播放模式: "hover"(悬停播放) | "press"(长按播放)
+        show_progress: false # 是否显示进度条
+        press_delay: 300 # 长按延迟时间(毫秒)，仅在press模式下生效
+      image: # 传统图片列表（兼容性保留）
+        # - https://example.com/cherry_blossom_still.jpg
+    # - date: 2024-01-10 # 图片日期
+    #   content: 夕阳下的海浪 # 图片内容描述
+    #   address: 青岛海滨 # 图片地点
+    #   from: iPhone 14 Pro Max # 图片来源
+    #   live_photo: # 实况照片配置
+    #     enable: true # 启用实况照片
+    #     still_image: https://example.com/sunset_waves_still.jpg # 静态图片（后备封面）
+    #     video: https://example.com/sunset_waves_live.mov # 实况视频
+    #     duration: 2.5 # 视频时长（秒）
+    #     poster: https://example.com/sunset_waves_poster.jpg # 自定义封面（可选）
+    #     # 播放控制配置
+    #     play_mode: "press" # 播放模式: "hover"(悬停播放) | "press"(长按播放)
+    #     show_progress: false # 是否显示进度条
+    #     press_delay: 500 # 长按延迟时间(毫秒)，仅在press模式下生效
+    #   image: # 传统图片列表（兼容性保留）
+    #     - https://example.com/sunset_waves_still.jpg
         

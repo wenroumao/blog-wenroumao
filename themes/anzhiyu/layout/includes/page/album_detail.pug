@@ -23,7 +23,27 @@
               li.album-item
                 .album-content
                   p.datacont= item.content
-                    if item.image
+                    if item.live_photo && item.live_photo.enable
+                      .album-container-img
+                        - let posterSrc = item.live_photo.poster || item.live_photo.still_image
+                        - let playMode = item.live_photo.play_mode || 'hover'
+                        - let showProgress = item.live_photo.show_progress !== false
+                        - let pressDelay = item.live_photo.press_delay || 300
+                        .live-photo-container(data-duration=item.live_photo.duration data-play-mode=playMode data-show-progress=showProgress data-press-delay=pressDelay)
+                          .live-photo-wrapper
+                            img.live-photo-still(src=item.live_photo.still_image alt=item.content)
+                            video.live-photo-video(preload="none" muted loop playsinline poster=posterSrc)
+                              source(src=item.live_photo.video type="video/mp4")
+                            .live-photo-controls
+                              .live-photo-play-btn
+                                i.anzhiyufont.anzhiyu-icon-play
+                              .live-photo-indicator LIVE
+                              .live-photo-cover-status(style="display: none;")
+                                span.cover-status-text 正在提取封面...
+                        .album-content-noimg
+                        .album-content-noimg
+                        .album-content-noimg
+                    else if item.image
                       .album-container-img
                         each iten, indey in item.image
                           a.album-content-img(href=item.image[indey], target="_blank", data-fancybox="gallery", data-caption="")

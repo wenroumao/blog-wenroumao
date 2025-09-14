@@ -1,0 +1,328 @@
+/* 实况照片样式 - 自适应布局 */
+.live-photo-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9; /* 默认比例，会根据内容自适应 */
+  min-height: 200px;
+  max-height: 80vh;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.live-photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.live-photo-still,
+.live-photo-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.live-photo-video {
+  opacity: 0;
+  z-index: 2;
+}
+
+.live-photo-container.playing .live-photo-video {
+  opacity: 1;
+}
+
+.live-photo-container.playing .live-photo-still {
+  opacity: 0;
+}
+
+/* 控制按钮 */
+.live-photo-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: opacity 0.3s ease;
+}
+
+.live-photo-play-btn {
+  display: none; /* 移除中央播放按钮 */
+}
+
+/* LIVE 指示器 - 重新设计UI */
+.live-photo-indicator {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.live-photo-indicator::before {
+  content: '●';
+  color: #ff3b30;
+  margin-right: 3px;
+  font-size: 8px;
+  animation: live-dot-pulse 2s infinite;
+}
+
+.live-photo-container.playing .live-photo-indicator {
+  background: rgba(255, 59, 48, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  animation: live-indicator-pulse 1.5s infinite;
+}
+
+.live-photo-container.playing .live-photo-indicator::before {
+  color: white;
+  animation: live-dot-pulse-active 1s infinite;
+}
+
+/* 新的动画效果 */
+@keyframes live-dot-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes live-dot-pulse-active {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes live-indicator-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(255, 59, 48, 0.3);
+  }
+  50% {
+    box-shadow: 0 2px 12px rgba(255, 59, 48, 0.6);
+  }
+}
+
+/* 进度条 */
+.live-photo-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--anzhiyu-main);
+  transition: width 0.1s linear;
+  z-index: 4;
+  opacity: 1;
+}
+
+/* 隐藏进度条的容器 */
+.live-photo-container[data-show-progress="false"] .live-photo-progress {
+  display: none;
+}
+
+.live-photo-container.playing .live-photo-progress {
+  animation: progress-bar var(--duration, 3s) linear;
+}
+
+
+.live-photo-container[data-play-mode="press"] {
+  cursor: pointer;
+}
+
+.live-photo-container[data-play-mode="press"]:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* 长按提示 */
+.live-photo-container[data-play-mode="press"]::before {
+  content: '';  /* 长按提示 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.live-photo-container[data-play-mode="press"]:hover::before {
+  opacity: 1;
+}
+
+.live-photo-container[data-play-mode="press"].playing::before {
+  opacity: 0;
+}
+
+@keyframes progress-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 悬停效果 */
+.live-photo-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式设计 - 自适应布局 */
+@media screen and (max-width: 768px) {
+  .live-photo-container {
+    min-height: 180px;
+    max-height: 70vh;
+  }
+  
+  .live-photo-indicator {
+    font-size: 8px;
+    padding: 2px 5px;
+    top: 6px;
+    left: 6px;
+  }
+  
+  .live-photo-indicator::before {
+    font-size: 7px;
+    margin-right: 2px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .live-photo-container {
+    min-height: 150px;
+    max-height: 60vh;
+    border-radius: 8px;
+  }
+  
+  .live-photo-indicator {
+    font-size: 7px;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .live-photo-play-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--anzhiyu-white);
+}
+
+[data-theme="dark"] .live-photo-indicator {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--anzhiyu-white);
+}
+
+[data-theme="dark"] .live-photo-container.playing .live-photo-indicator {
+  background: rgba(255, 59, 48, 0.8);
+  color: white;
+}
+
+/* 封面提取状态 */
+.live-photo-container.extracting-cover {
+  position: relative;
+}
+
+.live-photo-container.extracting-cover .live-photo-cover-status {
+  display: flex !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.live-photo-cover-status .cover-status-text {
+  font-size: 14px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: pulse-text 1.5s infinite;
+}
+
+@keyframes pulse-text {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* 加载状态 */
+.live-photo-container.loading {
+  opacity: 0.7;
+}
+
+.live-photo-container.loading .live-photo-indicator::after {
+  content: ' 加载中...';
+  font-size: 8px;
+  opacity: 0.8;
+}
+
+/* 错误状态 */
+.live-photo-container.error .live-photo-indicator {
+  background: rgba(255, 59, 48, 0.8);
+  color: white;
+}
+
+.live-photo-container.error .live-photo-indicator::after {
+  content: ' 错误';
+  font-size: 8px;
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .live-photo-container {
+    /* 触摸设备上的优化 */
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .live-photo-indicator {
+    /* 触摸设备上更明显的指示器 */
+    opacity: 0.9;
+  }
+}
