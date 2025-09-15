@@ -1,9 +1,9 @@
 - class_name: 世界各地夕阳与风景 # 相册分类名称
   path_name: /wordScenery # 相册路径
   type: 1 # 相册类型，1为普通相册，2为瀑布流相册
-  description: 因为到不了世界各地，所以请网友们发来了各地的夕阳与风景🌇。 # 相册描述
-  cover: https://upload-bbs.miyoushe.com/upload/2025/06/13/125766904/2cf2b6aea07bba089d0d17c4fea72d1b_5366629137934368264.png # 相册封面
-  top_background: https://upload-bbs.miyoushe.com/upload/2025/06/13/125766904/2cf2b6aea07bba089d0d17c4fea72d1b_5366629137934368264.png # 顶部背景图
+  description: 这些都是我拍的一些照片，哈哈，技术不是很好哦🌇。 # 相册描述
+  cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0500.jpg # 相册封面
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0500.jpg # 顶部背景图
   rowHeight: 220 # 瀑布流每行高度
   limit: 10 # 每次加载图片数量
   lazyload: true # 是否开启懒加载
@@ -12,34 +12,37 @@
   top_link: /album # 返回链接
   top_btn_text: 返回 # 返回按钮文本
   album_list: # 相册列表
-    - date: 2022/10/26 01:00:00 # 图片日期
-      content: 湘潭的一角。 # 图片内容描述
-      address: 湖南湘潭 # 图片地点
-      from: 再吃一口就减肥 # 图片来源
+    - date: 2025/08/31 18:00:00 # 图片日期
+      content: 用无人机拍的 # 图片内容描述
+      address: 大连 # 图片地点
+      from: 本人 # 图片来源
       image: # 图片列表
-        - https://bu.dusays.com/2023/04/09/64329399db122.webp
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/DJI_0168.MP4_20250831_184449.971.jpg
     - date: 2022-10-25 # 图片日期
-      content: 洛阳暴雨后的天空。 # 图片内容描述
+      content: 这个是我生日那天去鞍山拍的 # 图片内容描述
       address: 河南洛阳 # 图片地点
       from: 紫菜卷 # 图片来源
       image: # 图片列表
-        - https://bu.dusays.com/2023/04/09/64329399db122.webp
-        - https://bu.dusays.com/2023/04/09/64329399db2e1.webp
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0555.jpg
 
 
 - class_name: 我的日常 # 相册分类名称
   path_name: /dailyPhoto # 相册路径
   type: 1 # 相册类型，1为普通相册，2为瀑布流相册
-  description: 这里存放的是有关我自己的一些沙雕生活与有趣的事情。 # 相册描述
+  description: 我的小窝。 # 相册描述
   top_link: /album # 返回链接
   top_btn_text: 返回 # 返回按钮文本
-  top_background: https://bu.dusays.com/2023/04/09/64329399cea5a.webp # 顶部背景图
-  cover: https://bu.dusays.com/2023/04/09/64329399cea5a.webp # 相册封面
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0529.jpg # 顶部背景图
+  cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0529.jpg # 相册封面
   album_list: # 相册列表
-    - date: 2022-10-24 # 图片日期
-      content: 老妹的画 # 图片内容描述
+    - date: 2025-06-08 # 图片日期
+      content: 哈哈，我的美腿 # 图片内容描述
       image: # 图片列表
-        - https://bu.dusays.com/2023/04/09/643293997b92b.jpeg
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_5281.jpg
+    - date: 2025-06-07 # 图片日期
+      content: 公司团建，但是现在估计也有离职的了吧 # 图片内容描述
+      image: # 图片列表
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/df5f74a31e7a8f5c54739f7740132bd5.jpg
 
 
 - class_name: 实况照片 # 相册分类名称
