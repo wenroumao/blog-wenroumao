@@ -8,8 +8,13 @@
   home_essay: true # 是否在首页显示短文
   top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/img/DM_20231215150634_005.jpg # 顶部背景图片
   essay_list: # 短文列表
-    - content: 歌曲推荐 # 短文内容
-      date: 2022/09/25 # 发布日期
+    - content: 今天我们从情侣变成了朋友啦，唉，一共四百七十一天，这么想想还是很快的，从刚认到现在一共发生了很多喜怒哀乐，但是她不喜欢我了，，我也不知道她看了什么东西才变成这样的，我也看到她看的书了，讲真的那本书真的一点用都没有，只会让领导觉得虚伪，现在的人也都不是傻子，以前的那套已经没用了，唉我也说不了什么，总之她头像换掉了，但是还没有真正的说分手，那其实也不算真正的分手吧，我到底该不该挽留她呢 # 短文内容
+      date: 2025/09/16 # 发布日期
+      aplayer: # Aplayer配置
+        server: netease # 音乐服务器
+        id: 1420706073 # 音乐ID
+    - content: 最近很喜欢听的一首歌 # 短文内容
+      date: 2025/09/15 # 发布日期
       aplayer: # Aplayer配置
         server: netease # 音乐服务器
         id: 2160799663 # 音乐ID
