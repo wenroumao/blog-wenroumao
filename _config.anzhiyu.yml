@@ -91,7 +91,7 @@ author_status:
 
 # Algolia search
 algolia_search:
-  enable: true
+  enable: false
   hits:
     per_page: 6
   tags:
@@ -1280,7 +1280,7 @@ CDN:
     # comment_barrage_js:
     # ai_abstract_js:
     # people_js:
-    # local_search:
+    #  local_search:https://npm.elemecdn.com/anzhiyu-blog@2.1.2/js/search/local-search.js
     # algolia_js:
     # algolia_search:
     # instantsearch:
@@ -1319,7 +1319,7 @@ CDN:
     # flickr_justified_gallery_css:
     # aplayer_css:
     # aplayer_js:
-    meting_js: https://npm.elemecdn.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js
+  meting_js: https://npm.elemecdn.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js
     # meting_api:
     # prismjs_js:
     # prismjs_lineNumber_js:
