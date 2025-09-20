@@ -12,6 +12,7 @@
     "version": "7.3.0"
   },
   "dependencies": {
+    "hexo-abbrlink": "^2.2.1",
     "hexo-bilibili-bangumi": "^2.0.1",
     "hexo-blog-encrypt": "^3.1.9",
     "hexo-butterfly-envelope": "^1.0.15",
