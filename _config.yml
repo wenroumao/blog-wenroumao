@@ -161,6 +161,23 @@ bangumi: # 追番设置
   #   enable: true           # 是否启用
   #   source: bgmv0
   #   ...
+# Algolia search
+algolia:
+  appId: "3IWIWZQLPS"
+  apiKey: "c7f91c77960bfa0eb9a1e3a7dda4f795"
+  adminApiKey: "972454c40c9fa359dd166ad67e4a6007"
+  chunkSize: 5000
+  indexName: "blog-wenroumao"
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
+
 # APlayer
 # https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md
 aplayer:
