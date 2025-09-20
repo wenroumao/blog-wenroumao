@@ -6,7 +6,7 @@ blog-wenroumao 是一个基于 Hexo 静态博客生成器构建的个人博客�
 
 ### 技术栈
 
-- **核心框架**: Hexo 7.3.0
+- **核心框架**: Hexo 7.3.0  
 - **主题**: AnZhiYu (基于 hexo-theme-butterfly 修改)
 - **模板引擎**: Pug, EJS
 - **样式预处理器**: Stylus
@@ -53,7 +53,7 @@ blog-wenroumao/
 ### 1. Hexo 主配置 (_config.yml)
 
 #### 站点信息配置
-```yaml
+```yaml 
 # Site
 title: Hexo                    # 网站标题
 subtitle: ''                   # 网站副标题
