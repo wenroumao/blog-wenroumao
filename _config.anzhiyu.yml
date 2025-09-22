@@ -458,34 +458,34 @@ footer:
       #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
       #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
   socialBar:
-    enable: false
+    enable: true
     centerImg:
     left:
-      # - title: email
-      #   link: mailto:anzhiyu-c@qq.com
-      #   icon: anzhiyu-icon-envelope
-      # - title: 微博
-      #   link: https://weibo.com/u/6378063631
-      #   icon: anzhiyu-icon-weibo
-      # - title: facebook
-      #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
-      #   icon: anzhiyu-icon-facebook1
-      # - title: RSS
-      #   link: atom.xml
-      #   icon: anzhiyu-icon-rss
+      - title: email
+        link: 2964421512@qq.com
+        icon: anzhiyu-icon-envelope
+      - title: 微博
+        link: https://weibo.com/u/7132450036
+        icon: anzhiyu-icon-weibo
+      - title: facebook
+        # link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
+        icon: anzhiyu-icon-facebook1
+      - title: RSS
+        link: atom.xml
+        icon: anzhiyu-icon-rss
     right:
-      # - title: Github
-      #   link: https://github.com/anzhiyu-c
-      #   icon: anzhiyu-icon-github
-      # - title: Bilibili
-      #   link: https://space.bilibili.com/372204786
-      #   icon: anzhiyu-icon-bilibili
-      # - title: 抖音
-      #   link: https://v.douyin.com/DwCpMEy/
-      #   icon: anzhiyu-icon-tiktok
-      # - title: CC
-      #   link: /copyright
-      #   icon: anzhiyu-icon-copyright-line
+      - title: Github
+        link: https://github.com/wenroumao
+        icon: anzhiyu-icon-github
+      - title: Bilibili
+        link: https://space.bilibili.com/397547279
+        icon: anzhiyu-icon-bilibili
+      - title: 抖音
+        link: https://www.douyin.com/user/MS4wLjABAAAA0vJm4xaBwiGOV4dYfhMuab-oW5NZiAhyZdaqkxg3CyQ?from_tab_name=main
+        icon: anzhiyu-icon-tiktok
+      - title: CC
+        # link: /copyright
+        icon: anzhiyu-icon-copyright-line
   list:
     enable: false
     randomFriends: 3
@@ -503,7 +503,7 @@ footer:
       #     - title: 文档
       #       link: /docs/
       #     - title: 源码
-      #       link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
+      #       link: https://github.com/wenroumao
       #     - title: 更新日志
       #       link: /update/
       # - title: 导航
@@ -529,7 +529,7 @@ footer:
       enable: false
       link: /copyright
     linkList:
-      - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
+      - link: https://github.com/wenroumao
         text: 主题
       # - link: https://image.anheyu.com
       #   text: 图床
@@ -585,12 +585,12 @@ microsoft_clarity:
 # --------------------------------------
 
 # Google Adsense (谷歌广告)
-google_adsense:
-  enable: false
-  auto_ads: true
-  js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client:
-  enable_page_level_ads: true
+# google_adsense:
+#   enable: false
+#   auto_ads: true
+#   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+#   client:
+#   enable_page_level_ads: true
 
 # Insert ads manually (手动插入广告)
 # ad:
@@ -1079,9 +1079,9 @@ home_top:
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
   banner:
     tips: 新品主题
-    title: Theme-AnZhiYu
+    title: Theme-wenroumao
     image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://docs.anheyu.com/
+    link: 
 
 # 朋友圈配置
 friends_vue:

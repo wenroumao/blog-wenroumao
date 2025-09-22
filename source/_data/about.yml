@@ -57,7 +57,7 @@
   personalities:
     author_name: 辩护人
     personality_type: ISFJ-T
-    photo_url: https://wenroumao.oss-cn-beijing.aliyuncs.com/img/%E5%92%8C%E5%AF%B9%E8%B1%A1
+    photo_url: https://wenroumao.oss-cn-beijing.aliyuncs.com/gif/preview.gif
     personality_img: https://www.16personalities.com/static/images/theory/traits/16personalities_trait_introverted.svg
     name_url: https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC
   maxim:
@@ -77,21 +77,21 @@
     comic_tips: 爱好番剧
     comic_title: 追番
     comic_list:
-      - name: 约定的梦幻岛
-        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/27/647166c44b414.webp
-      - name: 咒术回战
-        href: https://www.bilibili.com/bangumi/media/md28229899/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/24/646db4398832e.webp
-      - name: 紫罗兰永恒花园
-        href: https://www.bilibili.com/bangumi/media/md8892/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/24/646db43983d99.webp
-      - name: 鬼灭之刃
-        href: https://www.bilibili.com/bangumi/media/md22718131/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/24/646db439856a0.webp
-      - name: JOJO的奇妙冒险 黄金之风
-        href: https://www.bilibili.com/bangumi/media/md135652/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/30/64760e38d651a.webp
+      - name: CLANNAD
+        href: https://www.bilibili.com/bangumi/media/md1177
+        cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/fan/clannad.webp
+      - name: 青春猪头少年不会梦到兔女郎学姐 
+        href: https://www.bilibili.com/bangumi/media/md134932
+        cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/fan/tunvlang.webp
+      - name: 我们仍未知道那天所看见的花的名字。
+        href: https://www.bilibili.com/bangumi/media/md835
+        cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/fan/weiwenhuaming.webp
+      - name: 天使降临到我身边 
+        href: https://www.bilibili.com/bangumi/media/md4316442
+        cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/fan/tianshi.webp
+      - name: 名侦探柯南
+        href: https://www.bilibili.com/bangumi/media/md28228775
+        cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/fan/kenan.webp
   like:
     like_tips: 关注偏好
     like_title: 数码科技

@@ -1,6 +1,6 @@
 ---
 title: Typora更改mac主题
-cover: 'https://wenroumao.oss-cn-beijing.aliyuncs.com/img/DM_20231215150505_002.jpg'
+cover: 'https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/Typora.png'
 description: Typora更改mac主题
 tags:
   - 软件
@@ -8,7 +8,7 @@ tags:
 categories:
   - 鞍山职业技术学院
 abbrlink: 2284d265
-sticky: 1 
+sticky:  
 swiper_index: 2
 date: 2023-12-15 15:00:00
 updated: 2023-12-15 15:00:00
