@@ -59,7 +59,7 @@ title: Hexo                    # 网站标题
 subtitle: ''                   # 网站副标题
 description: ''                # 网站描述
 keywords:                      # 网站关键词
-author: John Doe               # 作者名称
+author: Zhaowei Peng              # 作者名称
 language: zh-CN                # 网站语言
 timezone: ''                   # 时区设置
 ```
