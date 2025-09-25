@@ -1247,7 +1247,7 @@ inject:
   bottom:
     # 自定义js
     # - <script src="/js/xxx"></script>
-    - <script src="themes/anzhiyu/source/js/f12.js"></script>
+    - <script src="/js/f12.js"></script>
     
 
 # CDN
