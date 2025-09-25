@@ -363,8 +363,8 @@ message: 请输入密码查看
 - class_name: 推荐博客
   flink_style: telescopic
   link_list:
-    - name: 安知鱼
-      link: https://blog.anheyu.com/
+    - name: 温柔猫
+      link: https://wenroumao.com/
       avatar: https://wenroumao.oss-cn-beijing.aliyuncs.com/img/%E5%A4%B4%E5%83%8F
       descr: 生活明朗，万物可爱
       color: vip
