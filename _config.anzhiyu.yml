@@ -18,6 +18,8 @@ menu:
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane
     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
+    项目架构: /architecture/ || anzhiyu-icon-code
+    更新日志: /changelog/ || anzhiyu-icon-history
     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
     我的装备: /equipment/ || anzhiyu-icon-dice-d20
 
