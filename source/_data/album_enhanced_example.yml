@@ -1,0 +1,102 @@
+# 实况照片增强效果配置示例
+# 复制此配置到 album.yml 中使用
+
+- class_name: "实况照片增强展示"
+  path_name: "/livePhotos"
+  type: 1
+  description: "支持动态放大缩小和渐进式模糊的实况照片展示"
+  album_list:
+    # 基础实况照片配置
+    - content: "春日樱花盛开 - 悬停播放模式"
+      live_photo:
+        enable: true
+        still_image: "/images/live-photos/sakura-still.jpg"
+        video: "/images/live-photos/sakura-video.mp4"
+        duration: 3
+        play_mode: "hover"      # 悬停播放模式
+        show_progress: true      # 显示进度条
+        press_delay: 300        # 长按延迟（毫秒）
+        
+    # 长按播放模式
+    - content: "夕阳西下美景 - 长按播放模式"
+      live_photo:
+        enable: true
+        still_image: "/images/live-photos/sunset-still.jpg"
+        video: "/images/live-photos/sunset-video.mp4"
+        duration: 2.5
+        play_mode: "press"       # 长按播放模式
+        show_progress: false     # 隐藏进度条
+        press_delay: 500        # 长按延迟500毫秒
+        
+    # 自定义封面
+    - content: "海浪拍岸 - 自定义封面"
+      live_photo:
+        enable: true
+        still_image: "/images/live-photos/wave-still.jpg"
+        video: "/images/live-photos/wave-video.mp4"
+        poster: "/images/live-photos/wave-custom-poster.jpg"  # 自定义封面
+        duration: 4
+        play_mode: "hover"
+        show_progress: true
+        press_delay: 300
+        
+    # 短时长实况照片
+    - content: "花瓣飘落 - 短时长效果"
+      live_photo:
+        enable: true
+        still_image: "/images/live-photos/petals-still.jpg"
+        video: "/images/live-photos/petals-video.mp4"
+        duration: 1.5           # 短时长1.5秒
+        play_mode: "press"
+        show_progress: true
+        press_delay: 200        # 更短的长按延迟
+        
+    # 长时长实况照片
+    - content: "云朵流动 - 长时长效果"
+      live_photo:
+        enable: true
+        still_image: "/images/live-photos/clouds-still.jpg"
+        video: "/images/live-photos/clouds-video.mp4"
+        duration: 6             # 长时长6秒
+        play_mode: "hover"
+        show_progress: true
+        press_delay: 300
+
+# 增强效果说明：
+# 1. 动态放大缩小效果：
+#    - 悬停时：呼吸式缩放动画，模拟苹果Live Photo效果
+#    - 播放时：脉冲式缩放动画，增强视觉冲击力
+#    - 3D倾斜：轻微的3D变换效果，增加立体感
+#
+# 2. 渐进式模糊处理：
+#    - 静态图片：播放时逐渐模糊并淡出
+#    - 视频内容：播放时逐渐清晰并增强
+#    - 滤镜效果：亮度、饱和度、对比度的动态调整
+#
+# 3. 光影效果：
+#    - 动态光影：悬停和播放时的光影扫过效果
+#    - 边缘发光：播放时的边缘发光动画
+#    - 阴影变化：动态阴影增强立体感
+#
+# 4. 性能优化：
+#    - GPU加速：使用transform3d和will-change优化
+#    - 响应式适配：不同屏幕尺寸的动画强度调整
+#    - 减少动画偏好：支持用户的动画偏好设置
+#
+# 5. 兼容性：
+#    - 移动端优化：简化动画以提升性能
+#    - 暗色主题：适配暗色主题的视觉效果
+#    - 高刷新率：优化高刷新率屏幕的动画效果
+
+# 使用方法：
+# 1. 将此文件内容复制到 source/_data/album.yml
+# 2. 替换示例中的图片和视频路径为实际文件路径
+# 3. 根据需要调整各项参数
+# 4. 运行 hexo clean && hexo generate 重新生成
+# 5. 访问 /livePhotos 页面查看效果
+
+# 注意事项：
+# - 视频文件建议使用MP4格式，时长2-6秒
+# - 静态图片建议使用JPG格式，尺寸1080x1080或16:9
+# - 文件大小控制在5MB以内以确保加载速度
+# - 建议使用CDN加速图片和视频加载

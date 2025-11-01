@@ -1,0 +1,42 @@
+# 即刻短文配置
+- title: 即刻短文 # 页面标题
+  subTitle: 咸鱼的日常生活。 # 副标题
+  tips: 随时随地，分享生活 # 提示信息
+  buttonText: 关于我 # 按钮文本
+  buttonLink: /about/ # 按钮链接
+  limit: 30 # 显示的短文数量限制
+  home_essay: true # 是否在首页显示短文
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/img/DM_20231215150634_005.jpg # 顶部背景图片
+  essay_list: # 短文列表
+    - content: 今天我们从情侣变成了朋友啦，唉，一共四百七十一天，这么想想还是很快的，从刚认到现在一共发生了很多喜怒哀乐，但是她不喜欢我了，，我也不知道她看了什么东西才变成这样的，我也看到她看的书了，讲真的那本书真的一点用都没有，只会让领导觉得虚伪，现在的人也都不是傻子，以前的那套已经没用了，唉我也说不了什么，总之她头像换掉了，但是还没有真正的说分手，那其实也不算真正的分手吧，我到底该不该挽留她呢 # 短文内容
+      date: 2025/09/16 # 发布日期
+      aplayer: # Aplayer配置
+        server: netease # 音乐服务器
+        id: 1420706073 # 音乐ID
+    - content: 最近很喜欢听的一首歌 # 短文内容
+      date: 2025/09/15 # 发布日期
+      aplayer: # Aplayer配置
+        server: netease # 音乐服务器
+        id: 2160799663 # 音乐ID
+    - content: 今天我对象把头像改了，我也不知道是什么原因，而且晚上打微信视频也拒绝我了，哎，我该坚持下去吗？ # 短文内容
+      date: 2025/09/15 # 发布日期
+    - content: 章鱼噼的原罪 # 短文内容
+      date: 2025/09/15 # 发布日期
+      link: https://www.bilibili.com/video/BV1q5htzvEYX/?spm_id_from=333.337.search-card.all.click&vd_source=e2ec1739eca68af47f2c7a1250f71a73 # 链接
+
+    # - content: # 短文内容
+    #   date: # 发布日期，格式为 YYYY/MM/DD 或 YYYY/MM/DD HH:MM:SS
+    #   video: # (可选) 视频列表，支持多个视频
+    #     - # 视频链接
+    #   image: # (可选) 图片列表，支持多张图片
+    #     - # 图片链接
+    #   address: # (可选) 地点
+    #   from: # (可选) 来源
+    #   link: # (可选) 链接
+    #   aplayer: # (可选) APlayer音乐播放器配置
+    #     server: # 音乐服务器，例如 netease, tencent, kugou, xiami, baidu
+    #     id: # 音乐ID
+
+
+
+      

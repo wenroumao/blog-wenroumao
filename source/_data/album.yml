@@ -1,0 +1,89 @@
+- class_name: 世界各地夕阳与风景 # 相册分类名称
+  path_name: /wordScenery # 相册路径
+  type: 1 # 相册类型，1为普通相册，2为瀑布流相册
+  description: 这些都是我拍的一些照片，哈哈，技术不是很好哦🌇。 # 相册描述
+  cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0500.jpg # 相册封面
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0500.jpg # 顶部背景图
+  rowHeight: 220 # 瀑布流每行高度
+  limit: 10 # 每次加载图片数量
+  lazyload: true # 是否开启懒加载
+  btnLazyload: false # 是否开启按钮懒加载
+  url: false # 是否使用外部URL
+  top_link: /album # 返回链接
+  top_btn_text: 返回 # 返回按钮文本
+  album_list: # 相册列表
+    - date: 2025/08/31 18:00:00 # 图片日期
+      content: 用无人机拍的 # 图片内容描述
+      address: 大连 # 图片地点
+      from: 本人 # 图片来源
+      image: # 图片列表
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/DJI_0168.MP4_20250831_184449.971.jpg
+    - date: 2022-10-25 # 图片日期
+      content: 这个是我生日那天去鞍山拍的 # 图片内容描述
+      address: 河南洛阳 # 图片地点
+      from: 紫菜卷 # 图片来源
+      image: # 图片列表
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0555.jpg
+
+
+- class_name: 我的日常 # 相册分类名称
+  path_name: /dailyPhoto # 相册路径
+  type: 1 # 相册类型，1为普通相册，2为瀑布流相册
+  description: 我的小窝。 # 相册描述
+  top_link: /album # 返回链接
+  top_btn_text: 返回 # 返回按钮文本
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0529.jpg # 顶部背景图
+  cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0529.jpg # 相册封面
+  album_list: # 相册列表
+    - date: 2025-06-08 # 图片日期
+      content: 哈哈，我的美腿 # 图片内容描述
+      image: # 图片列表
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_5281.jpg
+    - date: 2025-06-07 # 图片日期
+      content: 公司团建，但是现在估计也有离职的了吧 # 图片内容描述
+      image: # 图片列表
+        - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/df5f74a31e7a8f5c54739f7740132bd5.jpg
+
+
+- class_name: 实况照片 # 相册分类名称
+  path_name: /livePhotos # 相册路径
+  type: 1 # 相册类型，1为普通相册，2为瀑布流相册
+  description: 苹果设备拍摄的实况照片，记录生活中的动态瞬间。 # 相册描述
+  cover: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0530.JPEG # 相册封面
+  top_background: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0530.JPEG # 顶部背景图
+  top_link: /album # 返回链接
+  top_btn_text: 返回 # 返回按钮文本
+  album_list: # 相册列表
+    - date: 2025-09-07 # 图片日期
+      content: 在鞍山二一九公园拍摄 # 图片内容描述
+      address: 鞍山二一九公园 # 图片地点
+      from: iPhone 15 Pro Max # 图片来源
+      live_photo: # 实况照片配置
+        enable: true # 启用实况照片
+        still_image: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.JPEG # 静态图片（后备封面）
+        video: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.MOV # 实况视频
+        duration: 2 # 视频时长（秒）
+        # poster: 可选，不设置时自动使用视频第一帧作为封面
+        # 播放控制配置
+        play_mode: "press" # 播放模式: "hover"(悬停播放) | "press"(长按播放)
+        show_progress: false # 是否显示进度条
+        press_delay: 300 # 长按延迟时间(毫秒)，仅在press模式下生效
+      image: # 传统图片列表（兼容性保留）
+        # - https://example.com/cherry_blossom_still.jpg
+    # - date: 2024-01-10 # 图片日期
+    #   content: 夕阳下的海浪 # 图片内容描述
+    #   address: 青岛海滨 # 图片地点
+    #   from: iPhone 14 Pro Max # 图片来源
+    #   live_photo: # 实况照片配置
+    #     enable: true # 启用实况照片
+    #     still_image: https://example.com/sunset_waves_still.jpg # 静态图片（后备封面）
+    #     video: https://example.com/sunset_waves_live.mov # 实况视频
+    #     duration: 2.5 # 视频时长（秒）
+    #     poster: https://example.com/sunset_waves_poster.jpg # 自定义封面（可选）
+    #     # 播放控制配置
+    #     play_mode: "press" # 播放模式: "hover"(悬停播放) | "press"(长按播放)
+    #     show_progress: false # 是否显示进度条
+    #     press_delay: 500 # 长按延迟时间(毫秒)，仅在press模式下生效
+    #   image: # 传统图片列表（兼容性保留）
+    #     - https://example.com/sunset_waves_still.jpg
+        

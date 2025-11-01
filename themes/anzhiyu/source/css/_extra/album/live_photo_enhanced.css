@@ -1,0 +1,351 @@
+/**
+ * 实况照片增强视觉特效
+ * 包含动态放大缩小、渐进式模糊处理等高级视觉效果
+ */
+
+/* ==================== 动态放大缩小效果 ==================== */
+
+/* 基础动态缩放 - 更自然的呼吸效果 */
+.live-photo-container {
+  transform-origin: center center;
+  will-change: transform, filter;
+}
+
+/* 悬停时的动态放大效果 */
+.live-photo-container:hover {
+  animation: live-photo-breathe 4s ease-in-out infinite;
+}
+
+/* 播放时的动态效果 */
+.live-photo-container.playing {
+  animation: live-photo-playing-pulse 2s ease-in-out infinite;
+}
+
+/* 呼吸动画 - 模拟苹果Live Photo的微妙动态效果 */
+@keyframes live-photo-breathe {
+  0%, 100% {
+    transform: scale(1.02) translateZ(0);
+    filter: brightness(1) saturate(1);
+  }
+  25% {
+    transform: scale(1.025) translateZ(0);
+    filter: brightness(1.05) saturate(1.1);
+  }
+  50% {
+    transform: scale(1.03) translateZ(0);
+    filter: brightness(1.1) saturate(1.2);
+  }
+  75% {
+    transform: scale(1.025) translateZ(0);
+    filter: brightness(1.05) saturate(1.1);
+  }
+}
+
+/* 播放时的脉冲动画 */
+@keyframes live-photo-playing-pulse {
+  0%, 100% {
+    transform: scale(1.01) translateZ(0);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: scale(1.04) translateZ(0);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ==================== 渐进式模糊处理 ==================== */
+
+/* 静态图片的渐进式模糊效果 */
+.live-photo-still {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: blur(0px) brightness(1) saturate(1) contrast(1);
+}
+
+/* 悬停时的渐进式模糊 */
+.live-photo-container:hover .live-photo-still {
+  filter: blur(2px) brightness(1.1) saturate(1.2) contrast(1.05);
+  transform: scale(1.02) translateZ(0);
+}
+
+/* 播放时的模糊过渡 */
+.live-photo-container.playing .live-photo-still {
+  filter: blur(8px) brightness(0.9) saturate(0.8) contrast(0.9);
+  transform: scale(0.98) translateZ(0);
+  opacity: 0;
+}
+
+/* 视频元素的增强效果 */
+.live-photo-video {
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: blur(0px) brightness(1) saturate(1) contrast(1);
+  transform: scale(1) translateZ(0);
+}
+
+/* 播放时视频的清晰化效果 */
+.live-photo-container.playing .live-photo-video {
+  filter: blur(0px) brightness(1.05) saturate(1.1) contrast(1.02);
+  transform: scale(1.01) translateZ(0);
+}
+
+/* ==================== 高级过渡效果 ==================== */
+
+/* 容器的3D变换效果 */
+.live-photo-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* 图片和视频的3D效果 */
+.live-photo-still,
+.live-photo-video {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* 悬停时的微妙倾斜效果 */
+.live-photo-container:hover .live-photo-wrapper {
+  transform: rotateX(1deg) rotateY(1deg) translateZ(5px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 播放时的动态倾斜 */
+.live-photo-container.playing .live-photo-wrapper {
+  animation: live-photo-3d-tilt 3s ease-in-out infinite;
+}
+
+@keyframes live-photo-3d-tilt {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  25% {
+    transform: rotateX(0.5deg) rotateY(0.5deg) translateZ(2px);
+  }
+  50% {
+    transform: rotateX(1deg) rotateY(-0.5deg) translateZ(4px);
+  }
+  75% {
+    transform: rotateX(-0.5deg) rotateY(0.5deg) translateZ(2px);
+  }
+}
+
+/* ==================== 光影效果 ==================== */
+
+/* 动态光影叠加 */
+.live-photo-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* 悬停时显示光影效果 */
+.live-photo-container:hover::after {
+  opacity: 1;
+  animation: light-sweep 2s ease-in-out infinite;
+}
+
+/* 播放时的光影动画 */
+.live-photo-container.playing::after {
+  opacity: 0.8;
+  animation: light-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes light-sweep {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes light-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ==================== 边缘发光效果 ==================== */
+
+/* 播放时的边缘发光 */
+.live-photo-container.playing {
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: 
+    live-photo-playing-pulse 2s ease-in-out infinite,
+    glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.2),
+      0 0 40px rgba(255, 255, 255, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.3),
+      0 12px 48px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ==================== 性能优化 ==================== */
+
+/* GPU加速优化 */
+.live-photo-container,
+.live-photo-wrapper,
+.live-photo-still,
+.live-photo-video {
+  transform: translateZ(0);
+  will-change: transform, filter, opacity;
+}
+
+/* 减少重绘和重排 */
+.live-photo-container {
+  contain: layout style paint;
+}
+
+/* ==================== 响应式适配 ==================== */
+
+/* 中等屏幕适配 */
+@media screen and (max-width: 768px) {
+  /* 减少动画强度以提升性能 */
+  .live-photo-container:hover {
+    animation: live-photo-breathe-mobile 3s ease-in-out infinite;
+  }
+  
+  .live-photo-container.playing {
+    animation: live-photo-playing-pulse-mobile 2s ease-in-out infinite;
+  }
+  
+  @keyframes live-photo-breathe-mobile {
+    0%, 100% {
+      transform: scale(1.01) translateZ(0);
+    }
+    50% {
+      transform: scale(1.02) translateZ(0);
+    }
+  }
+  
+  @keyframes live-photo-playing-pulse-mobile {
+    0%, 100% {
+      transform: scale(1.005) translateZ(0);
+    }
+    50% {
+      transform: scale(1.02) translateZ(0);
+    }
+  }
+}
+
+/* 小屏幕适配 */
+@media screen and (max-width: 480px) {
+  /* 进一步简化动画 */
+  .live-photo-container:hover {
+    animation: none;
+    transform: scale(1.01);
+  }
+  
+  .live-photo-container.playing {
+    animation: live-photo-simple-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes live-photo-simple-pulse {
+    0%, 100% {
+      transform: scale(1) translateZ(0);
+    }
+    50% {
+      transform: scale(1.01) translateZ(0);
+    }
+  }
+  
+  /* 禁用3D效果以提升性能 */
+  .live-photo-container:hover .live-photo-wrapper {
+    transform: none;
+  }
+  
+  .live-photo-container.playing .live-photo-wrapper {
+    animation: none;
+  }
+}
+
+/* ==================== 暗色主题适配 ==================== */
+
+[data-theme="dark"] .live-photo-container::after {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+[data-theme="dark"] .live-photo-container.playing {
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== 高刷新率屏幕优化 ==================== */
+
+@media (min-resolution: 120dpi) {
+  .live-photo-container,
+  .live-photo-still,
+  .live-photo-video {
+    /* 为高刷新率屏幕优化动画 */
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* ==================== 减少动画偏好适配 ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  /* 为有动画敏感的用户提供静态版本 */
+  .live-photo-container:hover,
+  .live-photo-container.playing {
+    animation: none;
+  }
+  
+  .live-photo-container:hover .live-photo-wrapper,
+  .live-photo-container.playing .live-photo-wrapper {
+    animation: none;
+    transform: none;
+  }
+  
+  .live-photo-container::after {
+    animation: none;
+  }
+  
+  /* 保留基本的缩放效果但移除复杂动画 */
+  .live-photo-container:hover {
+    transform: scale(1.02);
+  }
+  
+  .live-photo-container.playing {
+    transform: scale(1.01);
+  }
+}

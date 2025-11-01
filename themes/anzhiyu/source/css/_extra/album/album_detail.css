@@ -1,0 +1,450 @@
+/* 处理单页背景 */
+body[data-type="album_detail"] #web_bg {
+  background: var(--anzhiyu-background);
+}
+body[data-type="album_detail"] #page {
+  border: 0;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: 0 0 !important;
+}
+body[data-type="album_detail"] #page .page-title {
+  display: none;
+}
+
+/* 处理页面样式 */
+#album_detail .album-container-img {
+  display: flex;
+  align-items: flex-start; /* 改为顶部对齐 */
+  justify-content: space-between; /* 改为两端对齐 */
+  width: 100%;
+  height: auto; /* 改为自动高度 */
+  flex-wrap: wrap;
+  margin-bottom: 0.3rem;
+  gap: 10px; /* 添加间距 */
+}
+#album_detail .album-container-img .album-content-noimg {
+  flex: 1; /* 使用flex布局自动分配空间 */
+  min-width: 0; /* 允许收缩 */
+}
+
+/* 多图片布局优化 */
+#album_detail .album-content-img {
+  flex: 1; /* 自动分配剩余空间 */
+  min-width: 200px; /* 设置最小宽度 */
+  max-width: 100%; /* 确保不超出容器 */
+}
+
+/* 单图片时占满宽度 */
+#album_detail .album-container-img:has(.album-content-img:only-of-type) .album-content-img {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+/* 两张图片时各占一半 */
+#album_detail .album-container-img:has(.album-content-img:nth-of-type(2):last-of-type) .album-content-img {
+  flex: 1 1 calc(50% - 5px);
+  max-width: calc(50% - 5px);
+}
+
+/* 三张或更多图片时的布局 */
+#album_detail .album-container-img:has(.album-content-img:nth-of-type(3)) .album-content-img {
+  flex: 1 1 calc(33.333% - 7px);
+  max-width: calc(33.333% - 7px);
+}
+
+#album_detail .album-content-img img {
+  width: 100%; /* 宽度填满容器 */
+  height: auto; /* 高度自适应 */
+  object-fit: contain; /* 改为contain以保持完整图片 */
+  max-width: 100%;
+  border-radius: 18px;
+  margin: 0; /* 移除上下边距 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* 苹果风格模糊效果时间 */
+  display: block; /* 确保块级显示 */
+  
+  /* 苹果风格默认模糊效果 */
+  filter: blur(8px) saturate(1.2) brightness(1.05) contrast(0.95);
+  transform: scale(1.02);
+  backdrop-filter: blur(20px);
+}
+
+/* 悬停时的清晰效果 */
+#album_detail .album-content-img:hover img {
+  filter: blur(0px) saturate(1) brightness(1) contrast(1);
+  transform: scale(1.000);
+  backdrop-filter: blur(0px);
+}
+
+#album_detail .album-content-img {
+  width: 100%;
+  height: auto; /* 改为自动高度 */
+  min-height: 200px; /* 设置最小高度 */
+  max-height: none; /* 移除最大高度限制 */
+  border-radius: 18px; /* 与图片保持一致的圆角 */
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  aspect-ratio: auto; /* 自动宽高比 */
+  
+  /* 苹果风格容器增强 */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 容器悬停效果 */
+#album_detail .album-content-img:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+#album_detail .album-content .datacont {
+  order: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--anzhiyu-fontcolor);
+  width: 100%;
+  line-height: 1.38;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+#album_detail p {
+  margin: 0px;
+}
+#album_detail div.album-content {
+  display: flex;
+  flex-flow: wrap;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+}
+#album_detail .timeline ul li.album-item {
+  position: relative;
+  width: 32%;
+  border: var(--style-border-always);
+  border-radius: 12px;
+  padding: 1rem 1rem 0.5rem;
+  transition: all 0.3s ease 0s;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--anzhiyu-card-bg);
+  box-shadow: var(--anzhiyu-shadow-border);
+  margin-right: 2%;
+}
+#album_detail .timeline #waterfall.show {
+  opacity: 1;
+}
+#album_detail .timeline #waterfall {
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+}
+#album_detail ul.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#album_detail {
+  margin-top: 1rem;
+  width: 100%;
+}
+#album_detail > section > ul > li.album-item {
+  margin-bottom: 1rem;
+}
+
+#album-tips {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#album_detail .timeline ul li.album-item hr {
+  display: flex;
+  position: relative;
+  margin: 8px 0px;
+  border: 1px dashed var(--anzhiyu-theme-op);
+  width: 100%;
+}
+
+#album_detail .album-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 95%;
+}
+
+#album_detail > section > ul > li > div .album-info-time,
+#album_detail > section > ul > li > div .album-info-address,
+#album_detail > section > ul > li > div .album-info-from {
+  color: var(--anzhiyu-fontcolor);
+  font-size: 0.7rem;
+  background-color: var(--anzhiyu-gray-op);
+  padding: 0px 8px;
+  border-radius: 20px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  line-height: 35px;
+  margin: 4px;
+  overflow: hidden;
+}
+#album_detail > section > ul > li > div .album-info-time time {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#album_detail > section > ul > li > div .album-info-address,
+#album_detail > section > ul > li > div .album-info-from {
+  margin-left: 4px;
+}
+#album_detail > section > ul > li > div .album-info-address span,
+#album_detail > section > ul > li > div .album-info-from span {
+  margin-left: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#album_detail .album-info .anzhiyufont.anzhiyu-icon-instagram {
+  margin-right: 8px;
+}
+
+#album_detail .album-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#album_detail .album-bottom .album-reply {
+  cursor: pointer;
+  width: 5%;
+}
+
+#album_detail .timeline ul li.album-item:hover {
+  border: var(--style-border-hover);
+}
+
+#album_detail .album-content-link {
+  display: flex;
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  align-items: center;
+  background-color: rgba(245, 108, 108, 0.13);
+  color: rgb(245, 108, 108);
+  padding: 0px 8px;
+  border-radius: 20px;
+}
+#album_detail .album-content-link i {
+  margin-right: 3px;
+}
+#album_detail .album-content-link:hover {
+  background-color: var(--anzhiyu-main);
+  color: var(--anzhiyu-white);
+}
+#album_detail .album-music {
+  width: 100%;
+  height: 90px;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: var(--style-border-always);
+  background: var(--anzhiyu-secondbg);
+}
+#album_detail .aplayer {
+  margin: 0;
+}
+
+#album_detail .aplayer.aplayer-withlrc .aplayer-pic {
+  height: 82px;
+  width: 82px;
+  margin: 4px;
+  border-radius: 4px;
+}
+.album-music .aplayer.aplayer-withlrc .aplayer-info {
+  padding: 5px 7px 0;
+}
+#album_detail .aplayer .aplayer-info .aplayer-music {
+  height: 23px;
+}
+#album_detail .aplayer .aplayer-info .aplayer-music .aplayer-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--anzhiyu-fontcolor);
+}
+
+#album_detail .aplayer .aplayer-info .aplayer-controller {
+  align-items: center;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+  padding: 0;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-time {
+  position: initial;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+  background: var(--anzhiyu-gray);
+  height: 8px;
+  border-radius: 12px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
+  height: 100%;
+  border-radius: 12px;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+  height: 100%;
+  border-radius: 12px;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+  display: none;
+}
+#album_detail .aplayer .aplayer-info .aplayer-controller .aplayer-time {
+  position: initial;
+}
+
+body[data-type="album_detail"] #page .author-content-item .card-content .banner-button-group .banner-button:hover {
+  color: var(--anzhiyu-white);
+  border-radius: 20px !important;
+}
+
+/* 响应式 */
+@media screen and (max-width: 1200px) {
+  #album_detail .timeline ul li.album-item {
+    width: 49%;
+    margin-right: 1%;
+  }
+  
+  #album_detail .album-content-img {
+    min-height: 180px; /* 中等屏幕减小最小高度 */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #album_detail .timeline ul li.album-item {
+    width: 100%;
+    margin-right: 0px;
+  }
+  
+  #album_detail .album-content-img {
+    min-height: 150px; /* 小屏幕进一步减小最小高度 */
+    min-width: 150px; /* 小屏幕最小宽度 */
+  }
+  
+  #album_detail .album-content-img img {
+    border-radius: 12px; /* 小屏幕使用较小圆角 */
+  }
+  
+  /* 移动端多图片布局调整 */
+  #album_detail .album-container-img:has(.album-content-img:nth-of-type(2):last-of-type) .album-content-img {
+    flex: 1 1 100%; /* 两张图片在移动端垂直排列 */
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  #album_detail .album-container-img:has(.album-content-img:nth-of-type(3)) .album-content-img {
+    flex: 1 1 calc(50% - 5px); /* 三张或更多图片在移动端两列显示 */
+    max-width: calc(50% - 5px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #album_detail .album-content-img {
+    min-height: 120px; /* 超小屏幕最小高度 */
+    border-radius: 12px; /* 调整圆角以匹配图片 */
+  }
+  
+  #album_detail .album-content-img img {
+    border-radius: 12px; /* 超小屏幕使用较小圆角 */
+    /* 移动端优化模糊效果 */
+    filter: blur(6px) saturate(1.1) brightness(1.03) contrast(0.97);
+  }
+  
+  #album_detail .album-content-img:hover img {
+    filter: blur(0px) saturate(1) brightness(1) contrast(1);
+  }
+  
+  /* 移动端暗色主题优化 */
+  [data-theme="dark"] #album_detail .album-content-img img {
+    filter: blur(6px) saturate(1.05) brightness(0.92) contrast(1.08);
+  }
+}
+[data-theme="dark"] #album_detail .album-music .aplayer,
+[data-theme="dark"] #album_detail .aplayer .aplayer-lrc:before,
+[data-theme="dark"] #album_detail .aplayer .aplayer-lrc:after {
+  background: var(--anzhiyu-card-bg);
+  color: var(--anzhiyu-fontcolor);
+}
+#album_detail .aplayer .aplayer-lrc p {
+  color: var(--anzhiyu-fontcolor);
+}
+
+/* 暗色主题下的苹果风格适配 */
+[data-theme="dark"] #album_detail .album-content-img {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] #album_detail .album-content-img:hover {
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] #album_detail .album-content-img img {
+  /* 暗色主题下的模糊效果调整 */
+  filter: blur(8px) saturate(1.1) brightness(0.9) contrast(1.1);
+}
+
+[data-theme="dark"] #album_detail .album-content-img:hover img {
+  filter: blur(0px) saturate(1) brightness(1) contrast(1);
+}
+
+#album_detail .type-gallery {
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+#album_detail_gallery_load_more {
+  opacity: 0;
+}
+
+#album_detail .tag-address {
+  display: flex;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: var(--anzhiyu-black-op);
+  font-size: 12px;
+  color: var(--anzhiyu-white);
+  transition: 0.3s;
+  z-index: 1;
+  user-select: none;
+}
