@@ -253,9 +253,9 @@ post_copyright:
 reward:
   enable: true                 # 启用打赏
   QR_code:
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png
+    - img: 
       text: 微信
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
+    - img: 
       text: 支付宝
 ```
 

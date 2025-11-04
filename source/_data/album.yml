@@ -20,8 +20,8 @@
         - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/DJI_0168.MP4_20250831_184449.971.jpg
     - date: 2022-10-25 # 图片日期
       content: 这个是我生日那天去鞍山拍的 # 图片内容描述
-      address: 河南洛阳 # 图片地点
-      from: 紫菜卷 # 图片来源
+      address: 辽宁鞍山 # 图片地点
+      from: 温柔猫 # 图片来源
       image: # 图片列表
         - https://wenroumao.oss-cn-beijing.aliyuncs.com/richang/IMG_0555.jpg
 
@@ -61,7 +61,7 @@
       live_photo: # 实况照片配置
         enable: true # 启用实况照片
         still_image: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.JPEG # 静态图片（后备封面）
-        video: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.MOV # 实况视频
+        video: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_0589.MOV # 实况视频\\
         duration: 2 # 视频时长（秒）
         # poster: 可选，不设置时自动使用视频第一帧作为封面
         # 播放控制配置
@@ -70,20 +70,20 @@
         press_delay: 300 # 长按延迟时间(毫秒)，仅在press模式下生效
       image: # 传统图片列表（兼容性保留）
         # - https://example.com/cherry_blossom_still.jpg
-    # - date: 2024-01-10 # 图片日期
-    #   content: 夕阳下的海浪 # 图片内容描述
-    #   address: 青岛海滨 # 图片地点
-    #   from: iPhone 14 Pro Max # 图片来源
-    #   live_photo: # 实况照片配置
-    #     enable: true # 启用实况照片
-    #     still_image: https://example.com/sunset_waves_still.jpg # 静态图片（后备封面）
-    #     video: https://example.com/sunset_waves_live.mov # 实况视频
-    #     duration: 2.5 # 视频时长（秒）
-    #     poster: https://example.com/sunset_waves_poster.jpg # 自定义封面（可选）
-    #     # 播放控制配置
-    #     play_mode: "press" # 播放模式: "hover"(悬停播放) | "press"(长按播放)
-    #     show_progress: false # 是否显示进度条
-    #     press_delay: 500 # 长按延迟时间(毫秒)，仅在press模式下生效
+    - date: 2025-10-29 # 图片日期
+      content: 沙河口区 # 图片内容描述
+      address: 辽宁大连 # 图片地点
+      from: iPhone 15 Pro Max # 图片来源
+      live_photo: # 实况照片配置
+        enable: true # 启用实况照片
+        still_image: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_1536.JPEG# 静态图片（后备封面）
+        video: https://wenroumao.oss-cn-beijing.aliyuncs.com/live%20photo/IMG_1536.MOV # 实况视频
+        duration: 2.5 # 视频时长（秒）
+        # poster: https://example.com/sunset_waves_poster.jpg # 自定义封面（可选）
+        # 播放控制配置
+        play_mode: "press" # 播放模式: "hover"(悬停播放) | "pss"(长按播放)
+        show_progress: false # 是否显示进度条
+        press_delay: 500 # 长按延迟时间(毫秒)，仅在press模式下生效
     #   image: # 传统图片列表（兼容性保留）
     #     - https://example.com/sunset_waves_still.jpg
         

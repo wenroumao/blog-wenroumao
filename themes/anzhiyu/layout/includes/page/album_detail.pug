@@ -32,7 +32,8 @@
                         .live-photo-container(data-duration=item.live_photo.duration data-play-mode=playMode data-show-progress=showProgress data-press-delay=pressDelay)
                           .live-photo-wrapper
                             img.live-photo-still(src=item.live_photo.still_image alt=item.content)
-                            video.live-photo-video(preload="none" muted loop playsinline poster=posterSrc)
+                            video.live-photo-video(preload="metadata" muted playsinline poster=posterSrc)
+                              source(src=item.live_photo.video type="video/quicktime")
                               source(src=item.live_photo.video type="video/mp4")
                             .live-photo-controls
                               .live-photo-play-btn

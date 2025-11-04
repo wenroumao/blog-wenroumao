@@ -155,7 +155,7 @@
 
 /* 悬停时显示光影效果 */
 .live-photo-container:hover::after {
-  opacity: 1;
+  opacity: 2;
   animation: light-sweep 2s ease-in-out infinite;
 }
 
