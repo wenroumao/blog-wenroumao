@@ -816,6 +816,8 @@ const anzhiyu = {
       // player listswitch 会进入此处
       const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
       anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+      // 添加流动效果更新
+      anzhiyu.musicBgFlowEffect.update();
     } else {
       // 第一次进入，绑定事件，改背景
       let timer = setInterval(() => {
@@ -925,6 +927,9 @@ const anzhiyu = {
     if (GLOBAL_CONFIG.music_page_default === "custom") {
       anzhiyu.changeMusicList();
     }
+
+    // 初始化音乐背景流动效果
+    anzhiyu.musicBgFlowEffect.init();
 
     // 监听键盘事件
     //空格控制音乐
@@ -1172,6 +1177,78 @@ const anzhiyu = {
     const scrollTop = document.documentElement.scrollTop;
     const top = offsetTop - scrollTop;
     return top <= viewPortHeight;
+  },
+  
+  // 音乐背景流动效果管理对象
+  musicBgFlowEffect: {
+    // 流动效果是否正在运行
+    isRunning: false,
+    
+    // 初始化流动效果
+    init: function() {
+      this.injectCSS();
+      this.start();
+    },
+    
+    // 动态注入CSS动画
+    injectCSS: function() {
+      // 检查是否已经注入过CSS
+      if (document.getElementById('music-bg-flow-css')) return;
+      
+      const css = `
+        /* 音乐背景流动效果 */
+        @keyframes flowing-background {
+          0% {
+            background-position: 0% 0%;
+          }
+          50% {
+            background-position: 100% 100%;
+          }
+          100% {
+            background-position: 0% 0%;
+          }
+        }
+        
+        #an_music_bg.flowing {
+          animation: flowing-background 20s linear infinite;
+          background-size: 120% 120%;
+          transition: all 0.5s ease-in-out;
+        }
+      `;
+      
+      const styleElement = document.createElement('style');
+      styleElement.id = 'music-bg-flow-css';
+      styleElement.textContent = css;
+      document.head.appendChild(styleElement);
+    },
+    
+    // 启动流动效果
+    start: function() {
+      const bgElement = document.getElementById('an_music_bg');
+      if (bgElement && !this.isRunning) {
+        bgElement.classList.add('flowing');
+        this.isRunning = true;
+      }
+    },
+    
+    // 停止流动效果
+    stop: function() {
+      const bgElement = document.getElementById('an_music_bg');
+      if (bgElement && this.isRunning) {
+        bgElement.classList.remove('flowing');
+        this.isRunning = false;
+      }
+    },
+    
+    // 更新流动效果，在背景变化时调用
+    update: function() {
+      // 先停止再启动，确保动画重新开始
+      this.stop();
+      // 使用setTimeout确保背景图片已经更新
+      setTimeout(() => {
+        this.start();
+      }, 100);
+    }
   },
   //添加赞赏蒙版
   addRewardMask: function () {
