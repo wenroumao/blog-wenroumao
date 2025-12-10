@@ -1,0 +1,41 @@
+[
+  {
+    "url": "http://localhost:4000/",
+    "isRepresentativeRun": true,
+    "htmlPath": "I:\\blog-wenroumao\\reports\\lhci\\localhost-_-2025_11_13_15_10_50.report.html",
+    "jsonPath": "I:\\blog-wenroumao\\reports\\lhci\\localhost-_-2025_11_13_15_10_50.report.json",
+    "summary": {
+      "performance": 0.55,
+      "accessibility": 0.59,
+      "best-practices": 0.67,
+      "seo": 0.83,
+      "pwa": 0.33
+    }
+  },
+  {
+    "url": "http://localhost:4000/archives/",
+    "isRepresentativeRun": true,
+    "htmlPath": "I:\\blog-wenroumao\\reports\\lhci\\localhost-_archives_-2025_11_13_15_11_54.report.html",
+    "jsonPath": "I:\\blog-wenroumao\\reports\\lhci\\localhost-_archives_-2025_11_13_15_11_54.report.json",
+    "summary": {
+      "performance": 0.59,
+      "accessibility": 0.84,
+      "best-practices": 0.92,
+      "seo": 0.91,
+      "pwa": 0.33
+    }
+  },
+  {
+    "url": "http://localhost:4000/about/",
+    "isRepresentativeRun": true,
+    "htmlPath": "I:\\blog-wenroumao\\reports\\lhci\\localhost-_about_-2025_11_13_15_12_34.report.html",
+    "jsonPath": "I:\\blog-wenroumao\\reports\\lhci\\localhost-_about_-2025_11_13_15_12_34.report.json",
+    "summary": {
+      "performance": 0.56,
+      "accessibility": 0.88,
+      "best-practices": 0.83,
+      "seo": 0.92,
+      "pwa": 0.33
+    }
+  }
+]

@@ -10,11 +10,12 @@
           specification: i9 13980HX/32GB/2TB/RTX4060
           description: 屏幕显示效果好、色彩准确、对比度强、性能强劲、。可以用来开发和设计。
           image: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/shebei/ROG%20%E6%9E%AA%E7%A5%9E%207%2016%20%E8%8B%B1%E5%AF%B8.webp
-          link: /posts/
+          link: ""
         - name: ROG Strix z790-E gaming wifi 台式
           specification: i9 14900kf/32GB/3TB/AMD 7700XT 360一体式水冷
           description: 我的第二台台式电脑，性能强劲，玩游戏时可以流畅运行，同时也可以用来开发和设计。
-          image: 
+          image: https://wenroumao.oss-cn-beijing.aliyuncs.com/blog-images/shebei/ROG%20%E6%9E%AA%E7%A5%9E%207%2016%20%E8%8B%B1%E5%AF%B8.webp
+          link: ""
         - name: iPhone 15 Pro Max
           specification: 原色钛金属 / 512G
           description: 采用航空级钛金属边框，超瓷晶面板和亚光玻璃背板，是系列中最轻的一代，中框采用拉丝纹理，边缘弧形设计提升握持感。
