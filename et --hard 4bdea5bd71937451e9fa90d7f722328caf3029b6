@@ -1,0 +1,220 @@
+[33mcommit 4bdea5bd71937451e9fa90d7f722328caf3029b6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: User <user@example.com>
+Date:   Wed Dec 10 00:33:19 2025 +0800
+
+    新增音乐背景流动视觉效果
+    实现了音乐切换时背景图片的平滑流动动画
+    优化了音乐页面的视觉体验
+    代码模块化设计，不影响原有功能
+
+[33mcommit 0d2a3863e068d06642a5df851a472eefa4732ba3[m
+Author: User <user@example.com>
+Date:   Thu Nov 20 00:26:14 2025 +0800
+
+    更新了一篇文章（快速上手）
+
+[33mcommit 32a5f6bb9e068bda3e4387953a90966230bfb92a[m
+Author: User <user@example.com>
+Date:   Wed Nov 5 02:05:47 2025 +0800
+
+    更新内容实况
+
+[33mcommit d968c1b731c0d3f179c5e58c307fa8345d628abc[m
+Author: User <user@example.com>
+Date:   Sat Nov 1 22:52:08 2025 +0800
+
+    整理
+
+[33mcommit 719eaaaa0ac767954d93363a16546d48f721a957[m
+Merge: 2d67212 2b6b4ed
+Author: User <user@example.com>
+Date:   Sat Nov 1 22:50:15 2025 +0800
+
+    换系统
+
+[33mcommit 2d6721297c296456909a138ef319dbb49ede7618[m
+Author: User <user@example.com>
+Date:   Sat Nov 1 22:46:48 2025 +0800
+
+    换系统
+
+[33mcommit 2b6b4ed437acac03154b41ab02208b95dc854dbd[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sun Oct 12 01:34:04 2025 +0800
+
+    增加新功能
+
+[33mcommit 0d4bd44d59cee5cec69c267f8e486e42e310f795[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Fri Sep 26 00:31:16 2025 +0800
+
+    修复bug
+
+[33mcommit cce6dad52d03f2c41863df76b3054ee59dc78651[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Thu Sep 25 23:48:16 2025 +0800
+
+    新增f12开发者检测
+
+[33mcommit 4fc8dc5b78320ef4e45ea4bc58d0afc322ac1c8d[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Tue Sep 23 00:51:31 2025 +0800
+
+    更新footer
+
+[33mcommit 5a38dd738b5b118d60d3655969db4dc62a7011c2[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Tue Sep 23 00:49:36 2025 +0800
+
+    整体完善一下博客
+
+[33mcommit aa5dcf92965836b4ed08bb485abeeb015bfdef43[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 18:44:45 2025 +0800
+
+    更新完成
+
+[33mcommit c3c149cf5954971e44ab964e645f08f61213593c[m
+Merge: 5f90185 1168d16
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 15:33:46 2025 +0800
+
+    Resolve merge conflict in db.json and update permalink config
+
+[33mcommit 5f9018509e61ee95472ff7c6e35874348c56c161[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 15:32:39 2025 +0800
+
+    回退
+
+[33mcommit 1168d160299676787a91a93afafaf71e1e7cf608[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 15:11:47 2025 +0800
+
+    测试界面
+
+[33mcommit 89c9c9e7ef1bb44da73b018f295b66d129c6ca9d[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 15:04:00 2025 +0800
+
+    测试界面
+
+[33mcommit 397487b6d28fc454f3c94b055409f49d216bac99[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 15:00:22 2025 +0800
+
+    修bug
+
+[33mcommit d81ac91ab3096e9be12fffebc22723f4a0e8f254[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 14:57:32 2025 +0800
+
+    无
+
+[33mcommit d12e7d77c7ad4c7c6cd4a2284c128d41f0ccfb96[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 14:51:28 2025 +0800
+
+    修复已知问题
+
+[33mcommit 47c9ea0c0ed5b25669ace11348960cf98b15d9c9[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 20 14:40:03 2025 +0800
+
+    添加搜索
+
+[33mcommit 4ec90eb4c0c1299bacec33a1e500bfab706a9dba[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Wed Sep 17 01:33:42 2025 +0800
+
+    添加日常
+
+[33mcommit 4439f0396f2659bed63ee2024524579ca220b363[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Tue Sep 16 01:40:20 2025 +0800
+
+    没有增加什么效果，改了一些BUG
+
+[33mcommit b31f86a06f0b951d35431256518401280063c045[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Tue Sep 16 00:36:10 2025 +0800
+
+    毛玻璃效果添加了，只在规定页面加载
+
+[33mcommit dd039a2390c837e2ba4a43850f659d6ab7148a41[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Mon Sep 15 22:46:16 2025 +0800
+
+    毛玻璃效果彻底删除，有隐性bug，修复好再上线
+
+[33mcommit 82d3b9d26e1e25fb99910242df77c7afffb63408[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Mon Sep 15 21:16:57 2025 +0800
+
+    回档
+
+[33mcommit c0f3426f079e5ba965e0a129a80b2b8150942b97[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Mon Sep 15 01:09:01 2025 +0800
+
+    优化了相册模糊效果，以及弧度，还有新增主界面menu的毛玻璃效果
+
+[33mcommit 14e1ca88358a81b6cb6973ec764218d0d0846db9[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Mon Sep 15 00:22:59 2025 +0800
+
+    优化了live实况以及图片的功能，以及相关的md文档
+
+[33mcommit 2b394cc2cde6282569ddb85cee977fb21d83b313[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sun Sep 14 22:40:24 2025 +0800
+
+    新增加了live实况图片的功能，以及相关的md文档
+
+[33mcommit 091b65f985280e9ffa4e85f3a6966211525df3f7[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sun Sep 14 16:42:33 2025 +0800
+
+    更新了相册功能
+
+[33mcommit a1a7a0c6530fa5b56e2796c68c97410c1b13b9fe[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sun Sep 14 16:01:51 2025 +0800
+
+    更新追番页面
+
+[33mcommit deb0a84e5379494bd29815bb3a14c26e344688a3[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sun Sep 14 02:00:12 2025 +0800
+
+    更新了许多内容
+
+[33mcommit 83f114276dfe791eb57577362f9fd58da57d0154[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sun Sep 14 01:08:18 2025 +0800
+
+    about添加个人
+
+[33mcommit 7f37453da323aa845c98ff8cec09c44365e47937[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 13 22:02:50 2025 +0800
+
+    添加F12开发者禁用提示
+
+[33mcommit 550513cbebdd29be8f99ae398c039d036ecfeca6[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 13 21:16:45 2025 +0800
+
+    修改了package.json 中的构建命令权限
+
+[33mcommit 43483599d685084c1ca0119809f86d39435e301a[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 13 21:12:59 2025 +0800
+
+    修改了package.json 中的构建命令权限
+
+[33mcommit a2ace0b5f784edce28776ac43bccbce8d781a1ca[m
+Author: wenroumao <m13028252518@163.com>
+Date:   Sat Sep 13 20:46:52 2025 +0800
+
+    第一次部署
